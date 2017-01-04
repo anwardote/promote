@@ -1,0 +1,68 @@
+$(".delete").click(function () {
+    return confirm("Are you sure to delete this snippet?");
+});
+
+tinymce.init({
+    selector: "textarea.tinymce",
+    skin: "dick-light",
+    plugins: "image,link,media,anchor,code",
+    file_browser_callback: elFinderBrowser,
+    relative_urls: false,
+    remove_script_host: false,
+    convert_urls: true,
+});
+function elFinderBrowser(field_name, url, type, win) {
+    tinymce.activeEditor.windowManager.open({
+        file: '<?= route('elfinder.tinymce4') ?>', // use an absolute path!
+        title: 'elFinder 2.0',
+        width: 900,
+        height: 450,
+        resizable: 'yes'
+}, {
+        setUrl: function (url) {
+            win.document.getElementById(field_name).value = url;
+        }
+    });
+    return false;
+}
+
+
+$(document).ready(function () {
+    $('#banner_type').change(function () {
+        var banner_type = $(this).val();
+        if (banner_type == 'slider') {
+            $("#slider_category").parent().show();
+            $("#banner_title").parent().hide();
+            $("#mceu_50").parent().hide();
+            $("#banner_image-filemanager").parent().hide();
+            $('#banner_type').closest('div').append('<p class="help-block">After adding or editing your page please add slider image by adding posts</p>');
+        } else {
+            $("#banner_title").parent().show();
+            $("#mceu_50").parent().show();
+            $("#banner_image-filemanager").parent().show();
+            $('#banner_type').closest('div').find('p').empty();
+        }
+    });
+});
+
+$(document).ready(function () {
+    var banner_type = $('#banner_type').val();
+    if (banner_type == 'slider') {
+        $("#slider_category").parent().show();
+        $("#banner_title").parent().hide();
+        $("#mceu_15").parent().hide();
+        $("#banner_image-filemanager").parent().hide();
+        $('#banner_type').closest('div').append('<p class="help-block">After adding or editing your page, please add slider image by adding posts</p>');
+
+    } else {
+
+        $("#slider_category").parent().hide();
+    }
+});
+
+$("#template").change(function () {
+    var page = $(this).val();
+    var url = '<?php route("page.new");?>?page=' + page
+    window.location = url;
+
+})

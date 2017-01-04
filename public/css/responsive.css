@@ -1,0 +1,2438 @@
+@media only screen and (max-width : 850px) {
+    /*
+        .singlePostTop h1 {
+        font-size:24px !important;
+    }
+    */
+    #topSec.healthPlansSec #subTextBecomeProvider {
+        width:300px !important;		
+    }
+    #satisfiedWrap ul {
+        -moz-column-count: 1;
+        -moz-column-gap: 0px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0px;
+        column-count: 1;
+        column-gap: 0px;
+
+        text-align:center;
+    }
+    #satisfiedWrap ul li {
+        display:block;
+        width:200px;
+        margin:0 auto;
+        margin-bottom:20px;
+    }
+    #satisfiedWrap h2 {
+        text-align:center !important;
+        font-size:20px !important;
+    }
+    #topSec.whyVirtualCare h1#pageTitle {
+        text-align:left;
+        padding-top:50px;
+
+    }
+    #geoWrap {
+        font-size:18px;
+    }
+    #geoWrap #geoContent {
+        font-size:18px;
+    }
+    #geoWrap #geoContent h2 {
+        font-size:30px;
+    }
+    #appWrap #appContent {
+        font-size:18px;
+    }
+    #appWrap #appContent h2 {
+        font-size:30px;
+    }
+    #header #navWrap #mobileMenuBtn {
+        display:block;
+    }
+    #navWrap #navigation-container {
+        background-color:rgba(0,0,0,0.7);
+        text-align:center;
+        min-width:210px;
+        position:absolute;
+        top:42px;
+        right:0px;
+        overflow:hidden;
+        height:0px;
+        padding-left:20px;
+        padding-right:20px;
+        padding-top:0px;
+        padding-bottom:0px;
+        transition: all .4s ease;
+        -moz-transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+        -o-transition: all .4s ease;
+
+    }
+    #navWrap #navigation-container.open {
+        height:auto;
+        padding-top:20px;
+        padding-bottom:20px;
+    }
+    #header #navWrap #navigation-container ul {
+        display:block;
+    }
+    #header #navWrap #navigation-container ul li {
+        display:block;
+        margin-bottom:10px;
+    }
+    #header #navWrap #navigation-container ul li:last-child {
+        margin-bottom:0px;
+    }
+    #header #navWrap #navigation-container ul li a {
+        color:#ffffff;
+        height:30px;
+        line-height:30px;
+        font-size:16px;
+    }
+    .grayGrad1 {
+        font-size:20px;
+    }
+
+    #appWrap {
+        background-position:left top;
+    }
+    #appWrap #appContent {
+        padding-left:0px;
+        width:521px;
+        margin:0 auto;
+        float:none;
+    }
+    #appWrap #appContent h2 {
+        text-align:center;
+    }
+    #ourMissionWrap #ourMissionContent {
+        width:445px;
+    }
+    #topSec h1#pageTitle {
+        text-align:left;
+        display:block;
+        height:auto;
+        line-height:normal;
+    }
+    #topSec h2 {
+        display:block;
+        text-align:center;
+        padding:0px;
+        margin:0px;
+        height:auto;
+        line-height:normal;
+
+        margin-bottom:20px;
+    }
+    #topSec #topSecSlider {
+        width:100%;
+    }
+    #topSec #leftWrap {
+        width:100%;
+        float:none;
+        background-color:#ffffff;
+    }
+    #topSec #leftWrap .itemWrap .itemInfoWrap {
+        width:70% !important;
+    }
+    #topSec #leftWrap .itemWrap .itemPic {
+        display:none !important;
+        left:auto;
+        right:0px;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .rightArrow {
+        left:auto;
+        right:20px;
+    }
+
+    #newsWrapper .newsArtWrap .newsInfo {
+        width:80%;
+    }
+    #topSec.ourTechnology h1#pageTitle {
+        text-align:left;
+    }
+    #subTextOurTech {
+        width:300px;
+    }
+    #learnHowWrap h2 {
+        font-size:28px !important;
+    }
+    #forgotWrap .leftColumn, #forgotWrap .rightColumn {
+        float:none;
+        width:100%;
+        text-align:center;
+    }
+    #forgotWrap .leftColumn {
+        margin-bottom:40px;
+    }
+    #forgotWrap .leftColumn h2,
+    #forgotWrap .rightColumn h2 {
+        text-align:center !important;
+    }
+    #forgotSpacer {
+        display:none;
+    }
+    #topSec.howItWorksTopSec h1 {
+        text-align:center !important;
+    }
+}
+@media only screen and (max-width : 830px) {
+    #executiveTeam ul li .moreWrap .lgPic {
+        float:none;
+        margin-right:auto;
+        margin-left:auto;
+        width:200px;
+        height:200px;
+        text-align:center;
+    }
+    #executiveTeam ul li .moreWrap .memberInfo {
+        width:100%;
+        float:none;
+    }
+    #executiveTeam ul li .moreWrap .memberInfo .closeBtn {
+        top:-230px;
+    }
+}
+@media only screen and (max-width : 824px) {
+    /*
+#executiveTeam ul li {
+    width:32.1%;
+    height:32.1%;
+}*/
+    #executiveTeam ul li img {
+        width:100%;
+    }
+}
+@media only screen and (max-width : 810px) {
+    #benefitsWrap ul {
+        -moz-column-count: 1;
+        -moz-column-gap: 0px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0px;
+        column-count: 1;
+        column-gap: 0px;
+    }
+    #benefitsWrap ul li {
+        width:100%;
+
+    }
+    #benefitsWrap ul li .infoWrap {
+        width:85%;
+    }
+}
+@media only screen and (max-width : 800px) {
+    #subTextOurTech.employersT {
+        width:400px !important;
+    }
+    #subTextBecomeProvider {
+        width:380px;
+    }
+    #topSec.becomeAProvider a.lgRedBtn {
+        margin-bottom:20px;
+    }
+    #header #addtlLinks span {
+        display:none;
+    }
+    #header #addtlLinks a {
+        display:block;
+    }
+    #header #addtlLinks {
+        margin-top:-15px;
+        line-height:18px;
+        text-align:right;
+    }
+    #teamWrap ul {
+        -moz-column-count: 1;
+        -moz-column-gap: 0px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0px;
+        column-count: 1;
+        column-gap: 0px;
+    }
+    #teamWrap ul li {
+        text-align:center;
+        width:100%;
+    }
+    #teamWrap .iconLeft {
+        float:none;
+        width:100%;
+    }
+    #teamWrap .teamRight {
+        float:none;
+        width:100%;
+        font-size:inherit;
+    }
+    #teamWrap h3 {
+        text-align:center;
+    }
+    #contactInfo,
+    #contactMap {
+        float:none;
+        width:100%;
+        box-sizing:border-box;	
+        text-align:center;
+    }
+}
+@media only screen and (max-width : 770px) {
+
+    .popContent .column {
+        width:44%;
+    }
+    #increaseBrandWrap h2,
+    #twoColumnsWrap h2 {
+        font-size:26px !important;
+        height:auto;
+        line-height:24px;
+        padding:30px 0px;
+    }
+    #increaseBrandWrap ul li {
+        margin:0px 20px 40px 20px;
+    }
+}
+@media only screen and (max-width : 768px) {
+
+    #howItWorks ul li {
+        font-size: 20px;
+    }
+
+    #howItWorks ul li img {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+    }
+
+    #howItWorks.hiwPage ul li .colorIcon  {
+        margin-top: -121px;
+
+    }
+
+    #footerWrap .footerCat h3 {
+        font-size:14px;
+    }
+    #hiwBottomWrap h3 {
+        font-size:24px;
+    }
+    #trustWrap h3 {
+        font-size:26px;
+        text-align:center
+    }
+    #twoColumnsWrap.healthPlansTwoColumn .leftColumn,
+    #twoColumnsWrap.healthPlansTwoColumn .rightColumn {
+        float:none;
+        width:100%;
+    }
+    /*
+#executiveTeam ul li {
+    width:32%;
+    height:32%;
+}
+    */
+    #executiveTeam ul li img {
+        width:100%;
+    }
+    /*****************************************/
+    /* geobanners */
+    /*****************************************/
+    .geobanner {
+        clear: both !important;
+        width: 100% !important;
+        font-size: 14px !important;
+        position: static !important;
+        bottom: auto !important;
+        right: auto !important;
+        line-height: normal !important;  
+    }
+    .geobanner#mainbanner {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .geobanner#bannercontent {
+        padding: 70px 10px 10px 10px !important;
+        position: relative !important;
+        line-height: normal !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    .geobanner img {
+        width: 50% !important;
+        height: auto !important;
+    }
+
+    .geobanner p {
+        font-size: 14px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .geobanner .schedule-mdlive {
+        font-size: 12px !important;
+    }
+    .geobanner img {
+        width: 35% !important;
+        margin-top: 10px !important;
+        height: auto !important;
+    }
+    .geobanner .hideable {
+        display: none !important;
+    }
+    .geobanner .smallprint {
+        margin: 0 !important;
+        margin-top: 5px !important;
+        font-size: 10px !important;
+        text-align: right !important;
+    }
+    .geobanner .smallprint span {
+        display: table !important;
+        width: 200px !important;
+        float: right !important;
+    }
+    /*****************************************/
+    /* geobanners centurahealth */
+    /*****************************************/
+    .geobanner.centurahealth #bannercontent {
+        padding: 60px 30px 0px 0px !important;
+    }
+    .geobanner.centurahealth p.bannertext{
+        font-size: 28px !important;
+        line-height: normal;      
+    }
+    .geobanner.centurahealth img {
+        height: auto !important;
+        width: 50% !important; 
+    }
+    .geobanner.centurahealth .buttons {
+        text-align: right;
+        margin-top: 20px;
+    }
+    .geobanner.centurahealth a.bannerbt {
+        display: table !important;
+        float: right !important;
+        margin-left: 10px;
+        background: #333366;
+        padding: 10px 25px 10px 25px;
+        display: block;
+        font-size: 24px;
+        box-sizing: border-box;
+        font-weight: normal;
+        text-align: center;
+    }
+    /*****************************************/
+    /* geobanners childrensmn */
+    /*****************************************/
+    .geobanner.childrensmn.shrinkwrap {
+        width:45% !important;
+        margin-left: 50% !important;
+        margin-right: 5% !important;
+        position: relative !important;
+    }
+    .geobanner.childrensmn img {
+        width: 100% !important;
+        margin-bottom: 6px !important;
+        height: auto !important;
+    }
+    .geobanner.childrensmn .message {
+        font-size: 16px !important;
+        padding: 0 !important;
+        margin: 0 0 20px 0 !important;
+    }  
+    .geobanner.childrensmn .buttons {
+        min-width: 350px;
+        text-align: left
+    }      
+    .geobanner.childrensmn a {
+        display: table !important;
+        height: auto !important;
+        font-size: 16px !important;
+        padding: 10px 30px 10px 30px !important;
+        margin: 0 10px 0 0;
+    }    
+    /*****************************************/
+    /* geobanners alnorth */
+    /*****************************************/
+    .geobanner.alnorth p{
+        font-size: 22px !important;
+        margin-bottom: 10px !important;
+    }
+    .geobanner.alnorth a{
+        font-size: 14px !important;
+    }
+    .geobanner.alnorth .schedule-mdlive{
+        font-size: 10px !important;
+    }
+    .geobanner.alnorth .smallprint {
+        margin-top: 10px !important;
+        text-align: left;
+    }
+    .geobanner.alnorth .smallprint span {
+        font-size: 10px !important;
+        display: table !important;
+        width: 350px !important;
+        float: right !important;
+        margin-top: 5px !important;
+        margin-bottom: 0px !important;
+    } 
+    .geobanner.alnorth .logopanel {
+        background: #fff !important;
+        opacity: 0.8 !important;
+        display: block !important;
+        width: 100% !important;
+        margin-left: 0px !important;
+        margin-top: 10px !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos {
+        width: 15% !important;
+        margin: 2% 5% 2% 5% !important;
+        float: left !important;
+    } 
+    .geobanner.alnorth .logopanel .customlogos.one {
+        margin-top:3% !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos.two {
+        margin-top:3% !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos.three {
+        margin-top:1% !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos.four {
+        margin-top:3% !important;
+    }
+    /*****************************************/
+    /* geobanners alcrestwood */
+    /*****************************************/
+    .geobanner.alcrestwood p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alcrestwood img {
+        width: 35% !important;
+        margin-top: 10px !important;
+        height: auto !important;
+    }    
+    /*****************************************/
+    /* geobanners alflowers */
+    /*****************************************/
+    .geobanner.alflowers p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alflowers img {
+        width: 25% !important;
+        margin-top: 20px !important;
+        height: auto !important;
+    }
+    .geobanner.alflowers img.enterprise-logo {
+        width: 20% !important;
+        margin-top: 5px !important;
+        height: auto !important;
+    }
+    .geobanner.alflowers .smallprint span {
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    }    
+    /*****************************************/
+    /* geobanners alvstabler */
+    /*****************************************/
+    .geobanner.alvstabler p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alvstabler img {
+        width: 35% !important;
+        margin-top: 10px !important;
+        height: auto !important;
+    }
+    .geobanner.alvstabler .smallprint span {
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    }      
+    /*****************************************/
+    /* geobanners alsbaldwin */
+    /*****************************************/
+    .geobanner.alsbaldwin p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alsbaldwin img {
+        width: 35% !important;
+        margin-top: 10px !important;
+        height: auto !important;
+    }
+    .geobanner.alsbaldwin .smallprint span {
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    }    
+    /*****************************************/
+    /* geobanners merithealth */
+    /*****************************************/
+    .geobanner.merithealth p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.merithealth img {
+        width: 25% !important;
+        margin-top: -7px !important;
+        height: auto !important;
+    }
+    .geobanner.merithealth .smallprint span {
+        margin-top: -5px !important;
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    } 
+    /*****************************************/
+    /* geobanners altrinity */
+    /*****************************************/
+    .geobanner.altrinity p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.altrinity img {
+        width: 35% !important;
+        margin-top: 10px !important;
+        height: auto !important;
+    }
+    /*****************************************/
+    /* geobanners sentara */
+    /*****************************************/
+    .geobanner.sentara {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.sentara#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.sentara#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.sentara img {
+        width: 50%;
+        height: auto;
+    }
+    .geobanner.sentara p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.sentara a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+    /*****************************************/
+    /* geobanners yalenewhavenhealth */
+    /*****************************************/
+    .geobanner.yalenewhavenhealth {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.yalenewhavenhealth#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.yalenewhavenhealth#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.yalenewhavenhealth img {
+        width: 50% !important;
+        margin-bottom: 5px;
+        height: auto;
+    }
+    .geobanner.yalenewhavenhealth p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    /*****************************************/
+    /* geobanners stmary */
+    /*****************************************/
+    .geobanner.stmary {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.stmary#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.stmary#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.stmary img {
+        width: 50% !important;
+        margin-bottom: 5px;
+        height: auto;
+    }
+    .geobanner.stmary p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    /*****************************************/
+    /* geobanners conehealth */
+    /*****************************************/
+    .geobanner.conehealth {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.conehealth#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.conehealth#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.conehealth img {
+        width: 50%;
+        height: auto;
+    }
+    .geobanner.conehealth p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.conehealth a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+    /*****************************************/
+    /* geobanners unitypoint */
+    /*****************************************/
+    .geobanner.unitypoint {
+        width: 100% !important;
+        font-size: 10px !important;
+    }
+    .geobanner.unitypoint#mainbanner {
+        padding: 0 !important;
+        margin: 0 !important;
+        background-size: cover !important;
+    }
+    .geobanner.unitypoint#bannercontent {
+        padding: 70px 10px 10px 10px !important;
+        position: relative !important;
+        line-height: normal !important;
+        box-sizing: border-box !important;
+    }
+    .geobanner.unitypoint img {
+        width: 50% !important;
+        height: auto !important;
+    }
+    .geobanner.unitypoint p {
+        margin-top: 5px !important;
+        margin-bottom: 26px !important;
+    }
+    .geobanner.unitypoint a.bannerbt {
+        font-size: 10px !important;
+        padding: 5px 10px 5px 10px !important;
+        border-radius: 3px !important;
+    }
+}
+@media only screen and (max-width : 716px) {
+    .executiveTop h1 {
+        text-align:center;
+        font-size:30px !important;
+    }
+
+
+    #executiveTeam ul li img {
+        width:100%;
+    }
+    #faqTop h1#pageTitle {
+        text-align:center !important;
+        font-size:30px !important;
+    }
+	/*new edited*/
+#treatmentsWrap #rightColumn h4, #treatmentsWrap h4{margin: 0 0 60px;   text-align: center;}
+#treatmentsWrap img {margin: 15px 0;}
+}
+@media only screen and (max-width : 710px) {
+    #mdSavesWrap h3 {
+        font-size:26px;
+        text-align:center;
+    }
+    #learnHowWrap ul {	
+        -moz-column-count: 1;
+        -moz-column-gap: 0px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0px;
+        column-count: 1;
+        column-gap: 0px;
+    }
+    #learnHowWrap ul li {
+        width:100%;
+    }
+    #learnHowWrap h2 {
+        font-size:20px;
+        height:auto;
+        line-height:26px;
+        text-align:center !important;
+        padding:30px 0px;
+    }
+}
+@media only screen and (max-width : 700px) {
+    /*****************************************/
+    /* geobanners childrensmn */
+    /*****************************************/
+    .geobanner.childrensmn.shrinkwrap {
+        width:40% !important;
+        margin-left: 55% !important;
+        margin-right: 5% !important;
+        position: relative !important;
+    }
+    .geobanner.childrensmn .buttons {
+        min-width: 350px;
+        text-align: left
+    }      
+    .geobanner.childrensmn a {
+        display: table !important;
+        height: auto !important;
+        font-size: 12px !important;
+        padding: 8px 20px 8px 20px !important;
+        margin: 0 10px 0 0;
+    }   
+}
+@media only screen and (max-width : 690px) {
+    #virtualTourWrap #picWrap, #virtualTourWrap #infoWrap {
+        float:none;
+        width:100%;
+    }
+    #virtualTourWrap #picWrap {
+        padding-bottom:30px;
+        text-align:center;
+    }
+    #healthCareIsChangingWrap .leftColumn,
+    #healthCareIsChangingWrap .rightColumn {
+        float:none;
+        width:100%;
+    }
+    #healthCareIsChangingWrap .rightColumn  {
+        text-align:center;
+        padding-top:30px;
+    }
+}
+@media only screen and (max-width : 660px) {
+    #header {
+        background-color:#ffffff;
+        height:122px;
+    }
+    #header #hdrRight {
+        padding-top:18px;
+        float:left;
+        padding-left:30px;
+    }
+    #header #addtlLinks {
+        margin-top:0px;
+        float:none;
+        text-align:left;
+    }
+    #header #addtlLinks a {
+        display:inline-block;
+        margin-top:5px;
+    }
+    #header #addtlLinks a:first-child {
+        padding-left:0px;
+    }
+    #header #addtlLinks span {
+        display:inline-block;
+    }
+    #header #navWrap {
+        height:5px;
+    }
+    #header #mobileMenuBtn {
+        color:#333333;
+        top:-58px;
+    }
+    #navWrap #navigation-container {
+        top:5px;
+    }
+    #latestNewsWrap ul li {
+        width:100% !important;
+        margin-right:0px;
+        min-height:auto !important;
+        padding:0px;
+    }
+    #testimonialsWrap #testiVideo,
+    #testimonialsWrap #testiWrap {
+        float:none;
+        width:100% !important;
+    }
+    #testimonialsWrap #testiVideo {
+        text-align:center;
+        margin-bottom:40px;
+    }
+    #latestNewsWrap ul li h3 {
+        font-size:18px;
+    }
+    h2 {
+        font-size:30px;
+    }
+    #howItWorks.hiwPage ul li {
+        font-size:16px;
+    }
+    #topSecOP #topText {
+        width:100%;
+    }
+    .popContent .column {
+        width:43%;
+    }
+    .popContent h3 {
+        font-size:18px;
+        font-weight:500;
+    }
+    .popupWrap h2 {
+        font-size:26px;
+    }
+    #benefitsWrap ul li {
+        margin-bottom:30px;
+    }
+    #benefitsWrap ul li .infoWrap {
+        width:80%;
+    }
+    #benefitsWrap h2 {
+        font-size:26px;
+        text-align:center;
+        line-height:normal;
+        height:auto;
+        padding:40px 0px;
+    }
+    #faqTop {
+        padding-top:30px;
+    }
+    #forgotWrap .leftColumn h2,
+    #forgotWrap .rightColumn h2 {
+        margin-bottom:0px;
+        padding-bottom:0px;
+    }
+    .forgotTop {
+        padding-top:30px !important;
+    }
+    /*****************************************/
+    /* geobanners */
+    /*****************************************/
+    .geobanner {
+        clear: both !important;
+        width: 100% !important;
+        font-size: 10px !important;
+        position: static !important;
+        bottom: auto !important;
+        right: auto !important;
+        line-height: normal !important;  
+    }
+    .geobanner#mainbanner {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .geobanner#bannercontent {
+        padding: 10px !important;
+        position: relative !important;
+        line-height: normal !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    .geobanner img {
+        width: 50% !important;
+        height: auto !important;
+    }
+    .geobanner a {
+        font-size: 10px !important;
+        padding: 5px 10px 5px 10px !important;
+        border-radius: 3px !important;
+    }
+    .geobanner p {
+        font-size: 10px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .geobanner .schedule-mdlive {
+        font-size: 10px !important;
+    }
+    .geobanner img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }
+    .geobanner .hideable {
+        display: none !important;
+    }
+    .geobanner .smallprint {
+        margin: 0 !important;
+        margin-top: 3px !important;
+        font-size: 9px !important;
+        text-align: right !important;
+    }
+    .geobanner .smallprint span {
+        display: table !important;
+        width: 170px !important;
+        float: right !important;
+    }
+
+    /*****************************************/
+    /* geobanners alcrestwood */
+    /*****************************************/
+    .geobanner.alcrestwood p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alcrestwood img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }    
+    /*****************************************/
+    /* geobanners alflowers */
+    /*****************************************/
+    .geobanner.alflowers p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alflowers img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }
+    .geobanner.alflowers .smallprint span {
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    }      
+    /*****************************************/
+    /* geobanners alvstabler */
+    /*****************************************/
+    .geobanner.alvstabler p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alvstabler img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }
+    .geobanner.alvstabler .smallprint span {
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    }     
+    /*****************************************/
+    /* geobanners alsbaldwin */
+    /*****************************************/
+    .geobanner.alsbaldwin p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alsbaldwin img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }
+    .geobanner.alsbaldwin .smallprint span {
+        display: table !important;
+        width: 210px !important;
+        float: right !important;
+    }    
+    /*****************************************/
+    /* geobanners altrinity */
+    /*****************************************/
+    .geobanner.altrinity p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.altrinity img {
+        width: 25% !important;
+        margin-top: 3px !important;
+        height: auto !important;
+    }
+    /*****************************************/
+    /* geobanners sentara */
+    /*****************************************/
+    .geobanner.sentara {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.sentara#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.sentara#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.sentara img {
+        width: 50%;
+        height: auto;
+    }
+    .geobanner.sentara p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.sentara a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+    /*****************************************/
+    /* geobanners yalenewhavenhealth */
+    /*****************************************/
+    .geobanner.yalenewhavenhealth {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.yalenewhavenhealth#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.yalenewhavenhealth#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.yalenewhavenhealth img {
+        width: 50%;
+        height: auto;
+    }
+    .geobanner.yalenewhavenhealth p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.yalenewhavenhealth a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+    /*****************************************/
+    /* geobanners stmary */
+    /*****************************************/
+    .geobanner.stmary {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.stmary#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.stmary#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.stmary img {
+        width: 50%;
+        height: auto;
+    }
+    .geobanner.stmary p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.stmary a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+        background-color: pink;
+        margin-top: 20px !important;
+        display: inline-block;
+    }
+    /*****************************************/
+    /* geobanners conehealth */
+    /*****************************************/
+    .geobanner.conehealth {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.conehealth#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.conehealth#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.conehealth img {
+        width: 50%;
+        height: auto;
+    }
+    .geobanner.conehealth p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.conehealth a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+}
+@media only screen and (max-width : 600px) {
+    #subTextOurTech.employersT {
+        width:100% !important;
+        text-align:center;
+    }
+    #topSec.employersTopSec {
+        background-image:none !important;
+        background-color:rgba(0,0,0,0.05);
+        height:auto !important;
+        padding-bottom:40px;
+    }
+    #topSec.employersTopSec .lgRedBtn {
+        display:block;
+        padding:0px;
+        width:280px;
+        margin:0 auto;
+    }
+    #topSec.employersTopSec h1#pageTitle {
+        text-align:center;
+    }
+    #header #logo img {
+        height:50px;
+    }
+    #header #hdrRight {
+        padding-top:7px;
+    }
+    #header #mobileMenuBtn {
+        top:-48px;
+    }
+    #header {
+        height:101px;
+    }
+    #trustWrap #twLeft, #trustWrap #twRight {
+        float:none;
+        width:100%;
+    }
+    #trustWrap #twLeft img {
+        text-align:center;
+        margin:0 auto;
+        display:inherit;
+    }
+    #trustWrap .lgGrayBtn {
+        width:200px;
+        margin:0 auto;
+        display:block;
+    }
+    #trustWrap h3 {
+        line-height:normal;
+        height:auto;
+        margin-bottom:20px;
+    }
+
+
+    .executiveTop {
+        padding-top:40px !important;
+    }
+    #investorsPage .investorItem .investorInner .lgPic,
+    #investorsPage .investorItem .investorInner .investorInfo {
+        float:none;
+        width:100%;
+        text-align:justify;
+    }
+    #investorsPage .investorItem .investorInner .lgPic {
+        text-align:center;
+    }
+    #investorsPage .investorItem .investorInner,
+    #investorsPage .investorItem .investorInner .lgPic,
+    #investorsPage .investorItem .investorInner .investorInfo {
+        display:block;
+    }
+    #investorsPage .investorItem .investorInner .lgPic {
+        padding:30px 20px;
+        box-sizing:border-box;
+        margin-bottom:20px;
+    }
+}
+@media only screen and (max-width : 580px) {
+    #howItWorks ul {
+        display:block;
+    }
+    #howItWorks ul li {
+        margin-bottom:20px;
+    }
+    #newsWrapper .newsArtWrap .newsInfo {
+        width:70%;
+    }
+    .popContent .column.left {
+        padding-right:0px;
+        margin-right:0px;
+        border-right:0px;
+        padding-bottom:20px;
+        border-bottom:solid 1px rgba(0,0,0,0.5);
+        margin-bottom:20px;
+    }
+    .popupWrap .column.left.formPop {
+        padding-bottom:0px;
+        border-bottom:0px;
+        margin-bottom:0px;
+    }
+    .popContent .column {
+        float:none;
+        width:100%;
+    }
+    .popContent img {
+        display:none;
+    }
+    .popContent .column br {
+        display:none;
+    }
+}
+@media only screen and (max-width : 567px) {
+    #mdSavesWrap #mdSavesBox {
+        height:auto;
+        background-size:cover;
+    }
+    #mdSavesWrap #mdSavesBox #listWrap .listItem .type,
+    #mdSavesWrap #mdSavesBox #listWrap .listItem .time,
+    #mdSavesWrap #mdSavesBox #listWrap .listItem .amount {
+        float:none;
+        width:100%;
+        text-align:center;
+        line-height:20px;
+
+    }
+    #mdSavesWrap #mdSavesBox #listWrap .listItem {
+        border-bottom:solid 1px rgba(0,0,0,0.1);
+        padding-bottom:20px;
+        margin-bottom:20px;
+    }
+    #mdSavesWrap #mdSavesBox #mdSavesText {
+        width:100%;
+        padding-right:30px;
+        box-sizing:border-box;
+    }
+    #mdSavesWrap #mdSavesBox #listWrap {
+        width:100%;
+        padding-right:30px;
+        box-sizing:border-box;
+
+    }
+    #mdSavesWrap #mdSavesBox #listWrap #sourceText {
+        text-align:center;
+    }
+
+}
+@media only screen and (max-width : 560px) {
+    #header #navMiniMobile {
+        display:block;
+    }
+    #header #addtlLinks {
+        display:none;
+    }
+    #header #hdrRight {
+        padding-top:13px;
+    }
+    #header #mobileMenuBtn {
+        top:-44px;
+    }
+    #header {
+        height:97px;
+    }
+    #topSec.whyVirtualCare {
+        background-position:left top;
+    }
+    #topSec.whyVirtualCare h1#pageTitle {
+        text-align:center;
+        font-size:30px;
+    }
+    #topSec.whyVirtualCare #subText {
+        text-align:center;
+        font-size:20px;
+    }
+    #topSec.whyVirtualCare #subText br {
+        display:none;
+    }
+    #topSec.whyVirtualCare .lgRedBtn.s2 {
+        width:260px;
+        padding:0px;
+        font-size:18px;
+        margin:0 auto;
+        display:block;
+    }
+    #topSec.whyVirtualCare  {
+        height:auto !important;
+    }
+    #topSec.whyVirtualCare .container {
+        padding-top:0px;
+        padding-bottom:50px;
+    }
+}
+@media only screen and (max-width : 545px) {
+    #topSec.becomeAProvider h1#pageTitle {
+        text-align:left;
+        font-size:30px;
+    }
+    #header #hdrRight {
+        padding-left:0px;
+        width:100%;
+        margin-top:-20px;
+        margin-bottom:10px;
+    }
+    #header #squareBtns {
+        white-space:nowrap;
+        margin-right:0px;
+        width:100%;
+        text-align:center;
+    }
+    #header #squareBtns a {
+        background-color:transparent;
+        padding:0px 10px 0px 0px;
+        color:#333333;
+        display:inline-block;
+        float:none;
+        font-size:12px;
+        border-right:solid 1px rgba(0,0,0,0.5);
+        margin-right:5px;
+    }
+    #header #squareBtns a:hover, #header #squareBtns a.active {
+        background-color:transparent;
+        color:#d0112b;
+    }
+    #header #squareBtns a:last-child {
+        border-right:0px;
+        padding-right:0px;
+        margin-right:0px;
+    }
+    #header #logo {
+        float:none;
+        width:100%;
+        display:block;
+        text-align:center;
+    }
+    #header {
+        height:124px;
+    }
+    #header #mobileMenuBtn {
+        top:-72px;
+    }
+    #footerWrap #footerCatsWrap {
+        display:block;
+    }
+    #footerWrap .footerCat {
+        width:100%;
+        text-align:left;
+        margin-bottom:40px;
+    }
+
+    #footerWrap #footerLinks {
+        float:none;
+        text-align:center;
+        font-size:12px;
+    }
+    #footerWrap #footerLinks a {
+        padding:0px 5px;
+    }
+    #howItWorks ul {
+        display:block;
+    }
+    #howItWorks ul li {
+        width:100%;
+        text-align:left;
+        margin-bottom:40px;
+    }
+    #howItWorks ul li:last-child {
+        margin-bottom:0px;
+    }
+    #howItWorks ul li img {
+        float:left;
+        padding-right:30px;
+        width: 100px;
+    }
+    #appWrap {
+        background-position:left top;
+    }
+    #appWrap #appContent {
+        padding-left:0px;
+        width:100%;
+        float:none;
+    }
+    #appWrap #appContent h2 {
+        padding-top:0px;
+        font-size:24px;
+        text-align:center;
+    }
+    #appWrap #downloadIcon {
+        width:60px;
+        margin:0 auto;
+    }
+    #appWrap #appText {
+        padding-top:0px;
+    }
+    #appWrap #downloadBtns {
+        width:161px;
+        margin:0 auto;
+    }
+    #appWrap #downloadBtns a {
+        display:block;
+        margin-right:0px !important;
+    }
+    #howItWorks.hiwPage ul li {
+        font-size:24px;
+        text-align:center;
+    }
+    #howItWorks.hiwPage ul li .colorIcon {
+        display:none !important;
+    }
+    #howItWorks.hiwPage ul li img {
+        float:none;
+        padding:0px;
+    }
+    h2 {
+        line-height:normal;
+        padding-top:20px;
+    }
+    #hiwBottomWrap {
+        background-position:left top;
+    }
+    #hiwBottomWrap h3 {
+        text-align:center;
+    }
+    #hiwBottomWrap #hiwImageW {
+        width:100%;
+        text-align:center;
+    }
+    #hiwBottomWrap a {
+        margin:0 auto;
+        display:block;
+        text-align:center;
+        width:200px;
+    }
+    #treatmentsWrap #leftColumn ul {
+        -moz-column-count: 1;
+        -moz-column-gap: 0px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 0px;
+        column-count: 1;
+        column-gap: 0px;
+        padding-left:0px;
+    }
+    #treatmentsWrap #leftColumn ul li {
+        display:block;
+        text-align:center;
+        width:100%;
+        padding-left:0px;
+    }
+    #treatmentsWrap #leftColumn h3 {
+        text-align:center;
+    }
+    #treatmentsWrap #rightColumn h4 {
+        text-align:center;
+        height:auto;
+    }
+    #treatmentsWrap #rightColumn h4 img {
+        position:relative !important;
+        display:block;
+        top:0px !important;
+        margin:15px auto !important;
+    }
+    #treatmentsWrap ul {
+        text-align:center;
+        list-style:none;
+        padding:0px;
+    }
+    #treatmentsWrap ul li {
+        width:100%;
+        padding:0px;
+    }
+    h1#pageTitle {
+        font-size:30px;
+        text-align:center;
+    }
+    .leftColumn, .rightColumn {
+        width:100%;
+        float:none;
+    }
+    #boardOfDirectors .memberItem .lgPic {
+        float:none;
+        width:100%;
+        text-align:center;
+        padding-bottom:30px;
+    }
+    #boardOfDirectors .memberItem .memberInfo {
+        float:none;
+        width:100%;
+        text-align:justify;
+    }
+    #boardOfDirectors .memberItem .memberInfo h3 {
+        text-align:left;
+        font-size:24px;
+    }
+    #signInWrap {
+        background-image:none !important;
+        background-color:rgba(0,0,0,0.1);
+        padding:20px;
+        height:auto;
+    }
+    #signInWrap input {
+        width:100%;
+    }
+    #signInWrap .altLogin {
+        text-align:center;
+        display:block;
+        width:120px;
+        margin:0 auto;
+        background-position:top center;
+        padding:50px 0px 0px 0px;
+    }
+    #footerWrap .footerCat h3 {
+        padding-bottom:10px;
+        border-bottom:solid 1px rgba(255,255,255,0.1);
+    }
+    #footerWrap .footerCat {
+        margin:0 auto;
+        width:60%;
+    }
+    #footerWrap .footerCat div {
+        margin-bottom:30px;
+    }
+    #footerWrap .footerCat:last-child div {
+        margin-bottom:0px;
+    }
+    #footerWrap .footerCat ul {
+        -moz-column-count: 2;
+        -moz-column-gap: 0px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 0px;
+        column-count: 2;
+    }
+    #footerWrap .footerCat:last-child {
+        margin:0 auto;
+    }
+}
+@media only screen and (max-width : 537px) {
+    #getStartedFormWrapper {
+        width:100%;
+        box-sizing:border-box;
+    }
+}
+@media only screen and (max-width : 510px) {
+    #appWrap #downloadIcon {
+        float: none;
+        text-align: center;
+        margin: 0 auto !important;
+        display: inherit;
+    }
+    #appWrap #appText {
+        display:block;
+        text-align:center;
+    }
+    #appWrap {
+        background-size:cover;
+        height:auto;
+    }
+    #topSec h2 {
+        font-size:20px;
+    }
+    #treatmentsWrap #leftColumn h3 {
+        font-size:24px;
+        text-align:center;	
+    }
+    #getStartedFormWrapper a.popupLink.right {
+        float:none;
+        display:block;
+        text-align:center;
+        width:100%;
+        padding-top:10px;
+    }
+    #getStartedFormWrapper a.popupLink.right br {
+        display:none;
+    }
+    #getStartedFormWrapper #formWrap input[type="submit"] {
+        float:none;
+        margin:0 auto;
+        display:block;
+    }
+    #topSec h1#pageTitle {
+        font-size:30px;
+    }
+    #getStartedFormWrapper #formWrap input, #getStartedFormWrapper #formWrap select {
+        font-size:15px;
+    }
+    #topSec.ourTechnology {
+        background-image:none !important;
+        height:auto !important;
+        padding-bottom:40px;
+    }
+    #topSec.ourTechnology h1#pageTitle,
+    #topSec.healthPlansSec h1#pageTitle {
+        text-align:center;
+    }
+    #topSec.ourTechnology h1#pageTitle {
+        font-size: 35px;
+    }
+    #subTextOurTech {
+        width:100%;
+        text-align:left;
+        padding-top: 20px;
+        padding-bottom: 15px;
+    }
+    #topSec.healthPlansSec #subTextBecomeProvider {
+        width:100% !important;
+        text-align:center !important;
+    }
+    #topSec.ourTechnology .lgRedBtn,
+    #topSec.healthPlansSec .lgRedBtn {
+        padding:0px;
+        width:270px;
+        margin:0 auto;
+        display:block;
+    }
+    #topSec.healthPlansSec {
+        background-image:none !important;
+        background-color:rgba(0,0,0,0.03);
+        height:auto !important;
+        padding-bottom:60px !important;
+    }
+    #twoColumnsWrap h2  {
+        text-align:center;
+    }
+    #subTextBecomeProvider {
+        width:300px !important;
+    }
+    .healthSystemsContent ul li {
+        display:block;
+        width:100%;
+        text-align:center;
+    }
+    .healthSystemsContent .leftColumn, .healthSystemsContent .rightColumn {
+        float:none;
+        width:100%;;
+    }
+    #increaseBrandWrap h2, #twoColumnsWrap h2 {
+        text-align:center !important;
+    }
+    #increaseBrandWrap ul li {
+        display:block;
+        text-align:center;
+        margin:0px 0px 40px 0px;
+        width:100%;
+    }
+
+}
+@media only screen and (max-width : 500px) {
+    table#commonConditions {
+        display: none !important;
+    }
+    ul#commonConditionsMobile {
+        display: block !important;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+    #mdSavesWrap h3 {
+        font-size:20px;
+        line-height:normal;
+        height:auto;
+        margin-bottom:20px;
+    }
+    #topSec.becomeAProvider {
+        background-position:55% center;
+    }
+    /*****************************************/
+    /* geobanners */
+    /*****************************************/
+    .geobanner {
+        clear: both !important;
+        width: 100% !important;
+        font-size: 10px !important;
+        position: static !important;
+        bottom: auto !important;
+        right: auto !important;
+        line-height: normal !important;  
+    }
+    .geobanner#mainbanner {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .geobanner#bannercontent {
+        padding: 10px !important;
+        position: relative !important;
+        line-height: normal !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+    .geobanner img {
+        width: 50% !important;
+        height: auto !important;
+    }
+    .geobanner a {
+        font-size: 10px !important;
+        padding: 5px 10px 5px 10px !important;
+        border-radius: 3px !important;
+    }
+    .geobanner p {
+        font-size: 10px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .geobanner .schedule-mdlive {
+        font-size: 10px !important;
+    }
+    .geobanner .hideable {
+        display: none !important;
+    }
+    .geobanner img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }
+    .geobanner .smallprint {
+        margin: 0 !important;
+        margin-top: 3px !important;
+        font-size: 9px !important;
+        text-align: right !important;
+    }
+    .geobanner .smallprint span {
+        display: table !important;
+        width: 170px !important;
+        float: right !important;
+    }
+    /*****************************************/
+    /* geobanners childrensmn */
+    /*****************************************/
+    .geobanner.childrensmn.shrinkwrap {
+        width:40% !important;
+        margin-left: 55% !important;
+        margin-right: 5% !important;
+        position: relative !important;
+    }
+    .geobanner.childrensmn img {
+        width: 100% !important;
+        margin-bottom: 6px !important;
+        height: auto !important;
+    }
+    .geobanner.childrensmn .message {
+        font-size: 10px !important;
+        padding: 0 !important;
+        margin: 0 0 20px 0 !important;
+    }      
+    .geobanner.childrensmn .buttons {
+        min-width: 350px;
+        text-align: left;
+        margin-top: -20px;
+    }
+    .geobanner.childrensmn a {
+        font-size: 10px !important;
+        display: table !important;
+        height: auto !important;
+        margin: 10px 5px 0 0 !important;
+        padding: 5px 10px 5px 10px !important;
+        border-radius: 3px !important;
+    }
+    /*****************************************/
+    /* geobanners centurahealth */
+    /*****************************************/
+    .geobanner.centurahealth #bannercontent {
+        padding: 30px 15px 0px 0px !important;
+    }
+    .geobanner.centurahealth p.bannertext{
+        font-size: 20px;
+        line-height: normal;      
+    }
+    .geobanner.centurahealth img {
+        height: auto !important;
+        width: 50% !important; 
+    }
+    .geobanner.centurahealth .buttons {
+        text-align: right;
+        margin-top: 20px;
+    }
+    .geobanner.centurahealth a.bannerbt {
+        display: table !important;
+        float: right !important;
+        margin-left: 10px;
+        background: #333366;
+        padding: 10px 25px 10px 25px;
+        display: block;
+        font-size: 20px;
+        box-sizing: border-box;
+        font-weight: normal;
+        text-align: center;
+    }
+    /*****************************************/
+    /* geobanners alnorth */
+    /*****************************************/
+    .geobanner.alnorth p{
+        margin-bottom: 10px !important;
+    }
+    .geobanner.alnorth a{
+        font-size: 12px !important;
+    }
+    .geobanner.alnorth .schedule-mdlive{
+        font-size: 10px !important;
+    }
+    .geobanner.alnorth .smallprint {
+        margin-top: 10px !important;
+    }
+    .geobanner.alnorth .smallprint span {
+        font-size: 10px !important;
+        display: table !important;
+        width: 350px !important;
+        float: right !important;
+        margin-top: 5px !important;
+        margin-bottom: 0px !important;
+    } 
+    .geobanner.alnorth .logopanel {
+        background: #fff !important;
+        opacity: 0.8 !important;
+        display: block !important;
+        width: 100% !important;
+        margin-left: 0px !important;
+        margin-top: 1px !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos {
+        width: 15% !important;
+        margin: 2% 5% 2% 5% !important;
+        float: left !important;
+    } 
+    .geobanner.alnorth .logopanel .customlogos.one {
+        margin-top:3% !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos.two {
+        margin-top:3% !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos.three {
+        margin-top:1% !important;
+    }
+    .geobanner.alnorth .logopanel .customlogos.four {
+        margin-top:3% !important;
+    }
+    /*****************************************/
+    /* geobanners alcrestwood */
+    /*****************************************/
+    .geobanner.alcrestwood p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alcrestwood img {
+        width: 25% !important;
+        margin-top: 3px !important;
+        height: auto !important;
+    }    
+    /*****************************************/
+    /* geobanners alflowers */
+    /*****************************************/
+    .geobanner.alflowers p {
+        margin-bottom: 8px !important;
+    }
+    .geobanner.alflowers a {
+        font-size: 10px !important;
+        margin-left: 15px !important;
+        padding: 3px 8px 3px 8px !important;
+    }
+    .geobanner .schedule-mdlive {
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 9px !important;
+    }   
+    .geobanner.alflowers img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }
+    .geobanner.alflowers imgenterprise-logo {
+        width: 25% !important;
+        margin-top: 0px !important;
+        height: auto !important;
+    }
+    .geobanner.alflowers .smallprint span {
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+        font-size: 9px !important;
+    }     
+    /*****************************************/
+    /* geobanners merithealth */
+    /*****************************************/
+    .geobanner.merithealth p {
+        margin-bottom: 10px !important;
+    }
+    .geobanner.merithealth img {
+        width: 25% !important;
+        margin-top: -7px !important;
+        height: auto !important;
+    }
+    .geobanner.merithealth .smallprint span {
+        margin-top: -5px !important;
+        font-size: 9px !important;
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    }   
+    /*****************************************/
+    /* geobanners alvstabler */
+    /*****************************************/
+    .geobanner.alvstabler p {
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alvstabler img {
+        width: 25% !important;
+        margin-top: 6px !important;
+        height: auto !important;
+    }
+    .geobanner.alvstabler .smallprint span {
+        display: table !important;
+        width: 240px !important;
+        float: right !important;
+    }    
+    /*****************************************/
+    /* geobanners alsbaldwin */
+    /*****************************************/
+    .geobanner.alsbaldwin p {
+        margin-bottom: 12px !important;
+    }
+    .geobanner.alsbaldwin img {
+        width: 25% !important;
+        margin-top: 3px !important;
+        height: auto !important;
+    }
+    .geobanner.alsbaldwin .smallprint span {
+        display: table !important;
+        width: 210px !important;
+        float: right !important;
+    }
+    /*****************************************/
+    /* geobanners altrinity */
+    /*****************************************/
+    .geobanner.altrinity p{
+        margin-bottom: 12px !important;
+    }
+    .geobanner.altrinity img {
+        width: 25% !important;
+        margin-top: 3px !important;
+        height: auto !important;
+    }
+    /*****************************************/
+    /* geobanners sentara */
+    /*****************************************/
+    .geobanner.sentara {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.sentara#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.sentara#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.sentara img {
+        width: 50% !important;
+        height: auto!important;
+    }
+    .geobanner.sentara p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.sentara a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+    /*****************************************/
+    /* geobanners yalenewhavenhealth */
+    /*****************************************/
+    .geobanner.yalenewhavenhealth {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.yalenewhavenhealth#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.yalenewhavenhealth#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.yalenewhavenhealth img {
+        width: 50% !important;
+        height: auto!important;
+    }
+    .geobanner.yalenewhavenhealth p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.yalenewhavenhealth a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+    /*****************************************/
+    /* geobanners stmary */
+    /*****************************************/
+    .geobanner.stmary {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.stmary#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.stmary#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.stmary img {
+        width: 50% !important;
+        height: auto!important;
+    }
+    .geobanner.stmary p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.stmary a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+        margin-top: 20px;
+        display: inline-block;
+    }
+    /*****************************************/
+    /* geobanners conehealth */
+    /*****************************************/
+    .geobanner.conehealth {
+        width: 100%;
+        font-size: 10px;
+    }
+    .geobanner.conehealth#mainbanner {
+        padding: 0;
+        margin: 0;
+    }
+    .geobanner.conehealth#bannercontent {
+        padding: 10px;
+        position: relative;
+        line-height: normal;
+        box-sizing: border-box;
+    }
+    .geobanner.conehealth img {
+        width: 50% !important;
+        height: auto!important;
+    }
+    .geobanner.conehealth p.bannertext {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .geobanner.conehealth a.bannerbt {
+        font-size: 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 3px;
+    }
+    /*****************************************/
+    /* geobanners unitypoint */
+    /*****************************************/
+    .geobanner.unitypoint {
+        width: 100% !important;
+        font-size: 10px !important;
+    }
+    .geobanner.unitypoint#mainbanner {
+        padding: 0 !important;
+        margin: 0 !important;
+        background-size: cover !important;
+    }
+    .geobanner.unitypoint#bannercontent {
+        padding: 10px !important;
+        position: relative !important;
+        line-height: normal !important;
+        box-sizing: border-box !important;
+    }
+    .geobanner.unitypoint img {
+        width: 50% !important;
+        height: auto !important;
+    }
+    .geobanner.unitypoint p {
+        margin-bottom: 25px !important;
+    }
+    .geobanner.unitypoint a.bannerbt {
+        font-size: 10px !important;
+        padding: 5px 10px 5px 10px !important;
+        border-radius: 3px !important;
+    }
+}
+@media only screen and (max-width : 475px) {
+    #trustedNetwork #trustedNetworkContent h3 {
+        font-size:20px;
+        text-align:center;
+    }
+    #topSecOP #topText {
+        font-size:20px;
+    }
+    h1#pageTitle {
+        font-size:34px;
+        text-align:center;
+    }
+    #faqTop {
+        padding-top:40px;
+    }
+    #newsWrapper .lgGrayBtn {
+        width:200px;
+        margin:0 auto;
+        display:block;
+    }
+    #healthCareIsChangingWrap h2 {
+        font-size:30px;
+        text-align:center;
+        line-height:normal;
+        height:auto;
+        padding-bottom:30px;
+    }
+    #benefitsWrap ul li {
+        width:100%;
+    }
+    #benefitsWrap ul li .iconWrap,
+    #benefitsWrap ul li .infoWrap {
+        float:left;
+        width:100%;
+        text-align:center;
+    }
+    #benefitsWrap ul li .iconWrap {
+        margin-bottom:20px;
+    }
+    #formColumn .half,
+    #formColumn .halfhalf {
+        width:100%;
+        float:none;
+    }
+
+}
+@media only screen and (max-width : 450px) {
+
+    #subTextBecomeProvider {
+        width:100%;
+        padding-right:0px;
+    }
+    #topSec.becomeAProvider a.lgRedBtn {
+        font-size:16px;
+        padding:0px;
+        text-align:center;
+        display:block;
+        width:280px;
+        margin:0 auto 20px auto !important;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .rightArrow {
+        display:none;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .itemInfo h4 {
+        font-size:14px;
+    }
+    #treatmentsWrap #rightColumn h4 {
+        text-align:center;
+        height:auto;
+        padding-bottom:0px;
+        margin-bottom:20px;
+    }
+    #treatmentsWrap #rightColumn h4 img {
+        position:relative !important;
+        display:block !important;
+        top:auto !important;
+        margin:0 auto !important;
+    }
+    #hiwBottomWrap h3 {
+        line-height:24px;
+        padding-top:30px;
+    }
+    .healthSystemsTopSec #subTextBecomeProvider,
+    .healthServiceCentersTopSec #subTextBecomeProvider {
+        width:100% !important;
+        text-align:center !important;
+    }
+    .healthSystemsTopSec h1#pageTitle,
+    .healthServiceCentersTopSec h1#pageTitle {
+        text-align:center !important;
+        padding-top:50px;
+    }
+    .healthSystemsTopSec .lgRedBtn,
+    .healthServiceCentersTopSec .lgRedBtn {
+        display:block;
+        width:280px;
+        padding:0px;
+        margin:0 auto;
+    }
+    #footerWrap .footerCat {
+        margin:0 auto;
+        width:100%;
+    }
+}
+@media only screen and (max-width : 423px) {
+    #signInWrap #signUpLinks {
+        width:100%;
+        float:none;
+        text-align:center;
+        padding:0px;
+    }
+    #signInWrap input[type='submit'] {
+        float:none;
+        width:100%;
+        padding:0px;
+    }
+    #inquiryRight  {
+        width:300px;
+    }
+    #inquiryRight #inquiryBox img {
+        display:none;
+    }
+}
+@media only screen and (max-width : 420px) {
+    #latestNewsWrap h2 {
+        text-align:center;
+        font-size:27px;
+        margin-top:0px;
+    }
+    #ourMissionWrap #ourMissionContent {
+        width:100%;
+    }
+    .lgRedBtn {
+        margin:0 auto;
+    }
+    #newsWrapper .newsArtWrap .picWrap {
+        display:none;
+    }
+    #newsWrapper .newsArtWrap .newsInfo {
+        float:none;
+        width:100%;
+    }
+    #getStartedFormWrapper #formWrap .half,
+    #getStartedFormWrapper #formWrap .half1-3,
+    #getStartedFormWrapper #formWrap .half2-3 {
+        display:block;
+        width:100%;
+        margin:0px 0px 10px 0px;
+    }
+    #topSec.getStartedTop {
+        height:auto;
+        background-size:cover;
+        padding-bottom:30px;
+    }
+    #topSec.becomeAProvider {
+        background-position:60% center;
+    }
+    #topSec.becomeAProvider h1 {
+        text-align: center !important;
+    }
+    #subTextBecomeProvider {
+        max-width:335px !important;
+        margin: 0 auto;
+        font-size: 20px;
+    }
+    /*
+     #topSecOP {
+         background-position:60% center;
+     }
+    */
+    #topSec.whyVirtualCare {
+        background-position:60% center;
+    }
+    #topSec.healthSystemsTopSec {
+        background-position:60% center;
+    }
+    #topSec.healthServiceCentersTopSec {
+        background-position:60% center;
+    }
+}
+@media only screen and (max-width : 390px) {
+    #howItWorks ul li img {
+        width:100px;
+    }
+    #howItWorks h4 {
+        font-size:24px;
+    }
+    .videoLink {
+        line-height:normal;
+    }
+    #virtualTourWrap #infoWrap h3 {
+        text-align:center;
+        font-size:20px;
+        height:auto;
+        line-height:normal;
+    }
+}
+@media only screen and (max-width : 375px) {
+    #appWrap #appText {
+        font-size:17px;
+    }
+    #appWrap #appText br {
+        display:none;
+    }
+    #faqsWrap #disclaimerText {
+        font-size:13px;
+    }
+    .popupWrap h2 {
+        padding-left:0px;
+        margin-left:0px;
+        text-align:center;
+        font-size:20px;
+    }
+    #executiveTeam ul.on {
+        padding:0px;
+    }
+    #executiveTeam ul li .moreWrap .memberInfo .closeBtn {
+        top:-250px;
+        right:-20px;
+    }
+    #inquiryRight #inquiryBox h3 {
+        font-size:24px;
+    }
+    #inquiryRight #inquiryBox h4 {
+        font-size:20px;
+    }
+    #inquiryRight #inquiryBox {
+        text-align:center;
+        display:block;
+    }
+    #inquiryRight #inqInfo {
+        float:none;
+    }
+}
+@media only screen and (max-width : 360px) {
+    a#licenseOurPlatform {
+        font-size: 16px !important;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .icon {
+        left:16px !important;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .icon.overlay {
+        left:26px;
+    }
+    h2 {
+        font-size:30px;
+    }
+    #howItWorks ul li {
+        font-size:18px;
+    }
+    #topSec h1#pageTitle {
+        font-size:20px;
+		margin:0 0 20px;
+    }
+	#treatmentsWrap #leftColumn h3, #treatmentsWrap h3{font-size: 24px;line-height:normal;text-align:center;}
+    #topSec #leftWrap .itemWrap .itemInfoWrap {
+        width:60% !important;
+    }
+    #topSec #leftWrap .itemWrap .openWrap .itemInfoWrap .itemInfo {
+        font-size:15px;
+        line-height:17px;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .itemInfo h3 {
+        font-size:20px;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap {
+        padding-left:10px;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .itemInfo {
+        padding-left:65px;
+    }
+    #learnHowWrap ul li a {
+        font-size:18px;
+    }
+
+}
+@media only screen and (max-width : 320px) {
+    #topSec #leftWrap .itemWrap .closedWrap .icon {
+        width:30px;
+        padding-top:12px;
+    }
+    #topSec #leftWrap .itemWrap .closedWrap .itemInfo {
+        padding-top:5px;
+    }      
+}

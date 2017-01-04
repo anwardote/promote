@@ -1,0 +1,75 @@
+
+/*
+        Copyright (C) 2011-2016 Hoefler & Co.
+        This software is the property of Hoefler & Co. (H&Co).
+        Your right to access and use this software is subject to the
+        applicable License Agreement, or Terms of Service, that exists
+        between you and H&Co. If no such agreement exists, you may not
+        access or use this software for any purpose.
+        This software may only be hosted at the locations specified in
+        the applicable License Agreement or Terms of Service, and only
+        for the purposes expressly set forth therein. You may not copy,
+        modify, convert, create derivative works from or distribute this
+        software in any way, or make it accessible to any third party,
+        without first obtaining the written permission of H&Co.
+        For more information, please visit us at http://typography.com.
+        219127-103187-20160324
+*/
+@font-face {
+    font-family:'Gotham-Book';
+    src: url('../fonts/Gotham-Book_gdi.eot');
+    src: url('../fonts/Gotham-Book_gdi.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gotham-Book_gdi.woff') format('woff'),
+        url('../fonts/Gotham-Book_gdi.ttf') format('truetype'),
+        url('../fonts/Gotham-Book_gdi.svg#Gotham-Book') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2248;
+}
+@font-face {
+    font-family:'GothamNarrow-Book';
+    src: url('../fonts/GothamNarrow-Book_gdi.eot');
+    src: url('../fonts/GothamNarrow-Book_gdi.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GothamNarrow-Book_gdi.woff') format('woff'),
+        url('../fonts/GothamNarrow-Book_gdi.ttf') format('truetype'),
+        url('../fonts/GothamNarrow-Book_gdi.svg#GothamNarrow-Book') format('svg');
+    font-weight: 325;
+    font-style: normal;
+    font-stretch: condensed;
+    unicode-range: U+0020-2212;
+}
+@font-face {
+    font-family:'GothamBook-Regular';
+    src: url('../fonts/GothamBook_gdi.eot');
+    src: url('../fonts/GothamBook_gdi.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GothamBook_gdi.woff') format('woff'),
+        url('../fonts/GothamBook_gdi.ttf') format('truetype'),
+        url('../fonts/GothamBook_gdi.svg#GothamBook-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2248;
+}
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('../fonts/gothammedium.eot');
+    src: url('../fonts/gothammedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/gothammedium.woff') format('woff'),
+        url('../fonts/gothammedium.ttf') format('truetype'),
+        url('../fonts/gothammedium.svg#gothammedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:'GothamNarrow-Medium';
+    src: url('../fonts/GothamNarrow-Medium_gdi.eot');
+    src: url('../fonts/GothamNarrow-Medium_gdi.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GothamNarrow-Medium_gdi.woff') format('woff'),
+        url('../fonts/GothamNarrow-Medium_gdi.ttf') format('truetype'),
+        url('../fonts/GothamNarrow-Medium_gdi.svg#GothamNarrow-Medium') format('svg');
+    font-weight: 350;
+    font-style: normal;
+    font-stretch: condensed;
+    unicode-range: U+0020-2212;
+}

@@ -1,0 +1,12 @@
+/node_modules
+/public/storage
+/.idea
+Homestead.json
+Homestead.yaml
+/storage
+/bootstrap/cache
+/nbproject
+.env
+*.env
+/.env
+/config/database.php

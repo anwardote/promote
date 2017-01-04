@@ -20,6 +20,20 @@ View::composer(['laravel-authentication-acl::admin.user.edit', 'laravel-authenti
     $view->with('group_values', $values_group);
 });
 
+
+/**
+ * recharge output select
+ */
+View::composer([
+    'laravel-authentication-acl::admin.recharge.new2',
+    'laravel-authentication-acl::admin.recharge.edit'
+], function ($view) {
+    $fh = new FormHelper();
+    $values_recharge_type_output = $fh->getSelectRechargeTypeOutputValues();
+    $view->with('recharge_type_output_values', $values_recharge_type_output);
+});
+
+
 /**
  * firmware output select
  */
@@ -94,6 +108,9 @@ View::composer([
  * Device output select
  */
 View::composer([
+    'laravel-authentication-acl::admin.recharge-info.new',
+    'laravel-authentication-acl::admin.recharge-info.edit',
+    'laravel-authentication-acl::admin.recharge.edit',
     'laravel-authentication-acl::admin.firmware.new',
     'laravel-authentication-acl::admin.firmware.edit',
     'laravel-authentication-acl::admin.firmware.list',

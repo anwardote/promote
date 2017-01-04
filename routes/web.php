@@ -49,6 +49,38 @@ Route::group(['prefix' => ''], function () {
 
 
 Route::group(['prefix' => 'admin'], function () {
+    /* START Recharge */
+    Route::get('/recharge/list', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'recharge.list',
+        'uses' => 'RechargesController@getAdminList']);
+
+    Route::get('/recharge/new', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'recharge.new',
+        'uses' => 'RechargesController@getNew']);
+
+
+    Route::get('/recharge/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'recharge.edit',
+        'uses' => 'RechargesController@getUpdate']);
+
+    Route::post('/recharge/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'recharge.edit',
+        'uses' => 'RechargesController@postUpdate']);
+
+    Route::get('/recharge/delete', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_delete'),
+        'as' => 'recharge.delete',
+        'uses' => 'RechargesController@delete']);
+
+
+
+
+
+
     /* START Formware */
     Route::get('/firmware/list', [
         'middleware' => array('can_see', 'admin_logged', 'has_perm:_firmware-editor'),
@@ -207,6 +239,40 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::group(['prefix' => 'admin/setup'], function () {
+
+
+    /* Setup drivers */
+    Route::get('/recharge-type/list', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_setup'),
+        'as' => 'recharge-type.list',
+        'uses' => 'RechargeTypeController@getList']);
+
+    Route::get('/recharge-type/new', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_setup'),
+        'as' => 'recharge-type.new',
+        'uses' => 'RechargeTypeController@getNew']);
+
+    Route::post('/recharge-type/new', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_setup'),
+        'as' => 'recharge-type.new',
+        'uses' => 'RechargeTypeController@postNew']);
+
+    Route::get('/recharge-type/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_setup'),
+        'as' => 'recharge-type.edit',
+        'uses' => 'RechargeTypeController@getUpdate']);
+
+    Route::post('/recharge-type/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_setup'),
+        'as' => 'recharge-type.edit',
+        'uses' => 'RechargeTypeController@postUpdate']);
+
+    Route::get('/recharge-type/delete', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_delete'),
+        'as' => 'recharge-type.delete',
+        'uses' => 'RechargeTypeController@delete']);
+
+
 
     /* Setup device */
     Route::get('/device/list', [

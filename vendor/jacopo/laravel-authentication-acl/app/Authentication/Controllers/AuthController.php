@@ -21,7 +21,8 @@ class AuthController extends Controller {
 
     public function getClientLogin()
     {
-        return view('laravel-authentication-acl::client.auth.login');
+       // return view('laravel-authentication-acl::client.auth.login');
+        return view('laravel-authentication-acl::admin.auth.login2');
     }
 
     public function getAdminLogin()

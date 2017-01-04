@@ -9,6 +9,7 @@ namespace LaravelAcl\Authentication\Helpers;
  */
 use LaravelAcl\Authentication\Repository\EloquentPermissionRepository as PermissionRepository;
 use LaravelAcl\Authentication\Repository\SentryGroupRepository;
+use App\Repositories\RechargeTypeRepository;
 use App\Repositories\CountryRepository;
 use App\Repositories\FcategoryRepository;
 use App\Repositories\DeviceRepository;
@@ -27,6 +28,7 @@ class FormHelper {
      * @var \LaravelAcl\Authentication\Repository\SentryGroupRepository
      */
     protected $repository_groups;
+    protected $repository_rechargetype;
     protected $repository_countries;
     protected $repository_fcategories;
     protected $repository_device;
@@ -34,9 +36,10 @@ class FormHelper {
     protected $repository_driverType;
     protected $repository_cmsCategory;
 
-    public function __construct(PermissionRepository $rp = null, SentryGroupRepository $rg = null, CountryRepository $cr = null, FcategoryRepository $fcr = null, DeviceRepository $dr = null, DriverNameRepository $dnr = null, DriverTypeRepository $dtr = null, CmsCategoryRepository $cmsCategory = null) {
+    public function __construct(PermissionRepository $rp = null, SentryGroupRepository $rg = null, RechargeTypeRepository $rt, CountryRepository $cr = null, FcategoryRepository $fcr = null, DeviceRepository $dr = null, DriverNameRepository $dnr = null, DriverTypeRepository $dtr = null, CmsCategoryRepository $cmsCategory = null) {
         $this->repository_permission = $rp ? $rp : new PermissionRepository();
         $this->repository_groups = $rg ? $rg : new SentryGroupRepository();
+        $this->repository_rechargetype = $rt ? $rt : new RechargeTypeRepository();
         $this->repository_countries = $cr ? $cr : new CountryRepository();
         $this->repository_fcategories = $fcr ? $fcr : new FcategoryRepository();
         $this->repository_device = $dr ? $dr : new DeviceRepository();
@@ -77,9 +80,14 @@ class FormHelper {
         $input[$field_name] = isset($input[$field_name]) ? [$input[$field_name] => $operation] : '';
     }
 
+    public function getSelectRechargeTypeOutputValues() {
+        return $this->getSelectValues("repository_rechargetype", 'id', 'type_name');
+    }
+
     public function getSelectCountryOutputValues() {
         return $this->getSelectValues("repository_countries", 'id', 'country_name');
     }
+
 
     public function getSelectDriverNameOutputValues() {
         return $this->getSelectValues("repository_driverName", 'id', 'name');

@@ -17,6 +17,13 @@ return [
             "permissions" => ["_group-editor", "_permission-editor", "_superadmin"]
         ],
         [
+            "name" => "Recharge",
+            "route" => "recharge.list",
+            "link" => '/admin/recharge/list',
+            "permissions" => ["_recharge-editor", "_superadmin"]
+        ],
+
+        [
             "name" => "Firmware",
             "route" => "firmware.list",
             "link" => '/admin/firmware/list',

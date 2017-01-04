@@ -178,8 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         LaravelAcl\Authentication\AuthenticationServiceProvider::class,
-        Barryvdh\Elfinder\ElfinderServiceProvider::class,
-        Cviebrock\EloquentSluggable\ServiceProvider::class
+        Barryvdh\Elfinder\ElfinderServiceProvider::class
     ],
 
     /*

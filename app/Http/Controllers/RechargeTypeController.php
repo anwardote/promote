@@ -46,49 +46,50 @@ class RechargeTypeController extends Controller {
 
     public function getList(Request $request) {
         $results = $this->RechargeType->all($request->except(['page']));
-        return View::make('laravel-authentication-acl::admin.driver-name.list')->with(['user_data' => $this->logged_user, 'results' => $results, 'request' => $request]);
+        return View::make('laravel-authentication-acl::admin.recharge-type.list')->with(['user_data' => $this->logged_user, 'results' => $results, 'request' => $request]);
     }
 
     public function getNew(Request $request) {
-        return View::make('laravel-authentication-acl::admin.driver-name.new')->with(['user_data' => $this->logged_user]);
+        return View::make('laravel-authentication-acl::admin.recharge-type.new')->with(['user_data' => $this->logged_user]);
     }
 
     public function postNew(Request $request) {
 
         $logged_user = $this->auth->getLoggedUser();
-        $this->validate($request, ['name' => 'required', 'image' => 'required']);
+        $this->validate($request, ['type_name' => 'required', 'ac_no' => 'required', 'image' => 'required']);
         try {
             $input = $request->except(['_token']);
             $this->RechargeType->create($input);
         } catch (JacopoExceptionsInterface $e) {
             $errors = $this->f->getErrors();
-            return Redirect::route("driver-name.new", [])->withInput()->withErrors($errors);
+            return Redirect::route("recharge-type.new", [])->withInput()->withErrors($errors);
         }
-        return Redirect::route('driver-name.list')->withMessage(Config::get('acl_messages.flash.success.driver-name_new_success'));
+        return Redirect::route('recharge-type.list')->withMessage(Config::get('acl_messages.flash.success.driver-name_new_success'));
     }
 
     public function getUpdate(Request $request) {
         $result = $this->RechargeType->find($request->id);
-        return View::make('laravel-authentication-acl::admin.driver-name.edit')->with(['data' => $result]);
+        return View::make('laravel-authentication-acl::admin.recharge-type.edit')->with(['data' => $result]);
     }
 
     public function postUpdate(Request $request) {
 
-       $this->validate($request, ['name' => 'required', 'image' => 'required']);
+       $this->validate($request, ['type_name' => 'required', 'ac_no'=>'required', 'image' => 'required']);
+
 
         try {
             $input = $request->except(['_token']);
             $this->RechargeType->update($input['id'], $input);
         } catch (JacopoExceptionsInterface $e) {
             $errors = $this->f->getErrors();
-            return Redirect::route("driver-name.edit", [])->withInput()->withErrors($errors);
+            return Redirect::route("recharge-type.edit", [])->withInput()->withErrors($errors);
         }
-        return Redirect::route('driver-name.list')->withMessage(Config::get('acl_messages.flash.success.driver-name_edit_success'));
+        return Redirect::route('recharge-type.list')->withMessage(Config::get('acl_messages.flash.success.driver-name_edit_success'));
     }
 
     public function delete(Request $request) {
         $this->RechargeType->delete($request->id);
-        return Redirect::route('driver-name.list')->withMessage(Config::get('acl_messages.flash.success.driver-name_delete_success'));
+        return Redirect::route('rechagre-type.list')->withMessage(Config::get('acl_messages.flash.success.driver-name_delete_success'));
     }
 
 }

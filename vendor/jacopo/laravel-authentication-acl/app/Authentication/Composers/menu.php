@@ -91,6 +91,24 @@ View::composer(['laravel-authentication-acl::admin.permission.*'], function ($vi
 
 
 /**
+ *  Recharge sidebar
+ */
+View::composer(['laravel-authentication-acl::admin.recharge-info.*'], function ($view) {
+    $view->with('sidebar_items', [
+        " Recharge Histories" => [
+            'url' => URL::route('recharge.list'),
+            "icon" => '<i class="fa fa-th-list"></i>'
+        ],
+        " New Recharge" => [
+            'url' => URL::route('recharge.new'),
+            "icon" => '<i class="fa fa-plus-circle"></i>'
+        ]
+    ]);
+});
+
+
+
+/**
  *  Firmware sidebar
  */
 View::composer(['laravel-authentication-acl::admin.firmware.*'], function ($view) {
@@ -180,10 +198,21 @@ View::composer(['laravel-authentication-acl::admin.view-category.*'], function (
  *  Setup sidebar
  */
 View::composer([
+    'laravel-authentication-acl::admin.recharge-type.*',
     'laravel-authentication-acl::admin.device.*',
     'laravel-authentication-acl::admin.driver-name.*',
     'laravel-authentication-acl::admin.driver-type.*'], function ($view) {
     $view->with('sidebar_items', [
+        " Type List" => [
+            'url' => URL::route('recharge-type.list'),
+            "icon" => '<i class="fa fa-th-list"></i>'
+        ],
+        " Type Add" => [
+            'url' => URL::route('recharge-type.new'),
+            "icon" => '<i class="fa fa-plus-circle"></i>'
+        ],
+
+
         " Device list" => [
             'url' => URL::route('device.list'),
             "icon" => '<i class="fa fa-th-list"></i>'

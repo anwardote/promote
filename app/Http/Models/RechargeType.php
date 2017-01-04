@@ -8,10 +8,6 @@ use Cartalyst\Sentry\Users\LoginRequiredException;
 class RechargeType extends Model {
 
     protected $table = 'recharge_types';
-    protected $fillable = ['type_name', 'thumbnail'];
-
-    public function driver() {
-        return $this->hasMany(Driver::class);
-    }
+    protected $fillable = ['type_name', 'ac_no', 'description', 'image'];
 
 }

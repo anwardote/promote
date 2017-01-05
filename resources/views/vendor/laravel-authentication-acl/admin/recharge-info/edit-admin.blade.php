@@ -1,7 +1,7 @@
 @extends('laravel-authentication-acl::admin.layouts.base-2cols')
 
 @section('title')
-    Admin area: User Recharge Modify
+    Admin area: add snippets
 @stop
 
 @section('head_css')
@@ -11,8 +11,8 @@
     <style>
         #firmwareForm a.remove {
             float: right;
-            top:-25px;
-            right:10px;
+            top: -25px;
+            right: 10px;
         }
     </style>
 @stop
@@ -66,6 +66,7 @@
                                 <span class="text-danger">{!! $errors->first('ac_to') !!}</span>
                             </div>
 
+
                             <div class="form-group">
                                 {!! Form::label('amount','Recharge Amount: *') !!}
                                 {!! Form::text('amount', $data->amount, [ 'class' => 'form-control', 'placeholder' => 'Recharge Amount here.']) !!}
@@ -78,11 +79,25 @@
                                 <span class="text-danger">{!! $errors->first('trans_no') !!}</span>
                             </div>
 
-                            {!! Form::textarea('remark', $data->remark, [ 'class' => 'form-control', 'placeholder' => 'Extra Information/message here.']) !!}
-                            <span class="text-danger">{!! $errors->first('remark') !!}</span>
-                        </div>
+                            <div class="form-group">
+                                {!! Form::label('admin_reply','Admin Message to the User: ') !!}
+                                {!! Form::textarea('admin_reply', $data->admin_reply, [ 'class' => 'form-control', 'placeholder' => 'Admin Message for Users here.']) !!}
+                                <span class="text-danger">{!! $errors->first('admin_reply') !!}</span>
+                            </div>
 
-                             {!! Form::hidden('id') !!}
+                            <div class="form-group">
+                                {!! Form::label('requested_for','Request For: *') !!}
+                                {!! Form::select('requested_for', $user_info_output_values, $data->requested_for, ["class"=>"form-control permission-select chosen-select"]) !!}
+                                <span class="text-danger">{!! $errors->first('requested_for') !!}</span>
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('status','Select status: *') !!}
+                                {!! Form::select('status', $status_values, $data->status, ["class"=>"form-control "]) !!}
+                                <span class="text-danger">{!! $errors->first('status') !!}</span>
+                            </div>
+
+                            {!! Form::hidden('id') !!}
 
                             {!! Form::submit('Save', array("class"=>"btn btn-info pull-right ")) !!}
                             {!! Form::close() !!}
@@ -138,8 +153,6 @@
                 x--;
             })
         });
-
-
 
 
         tinymce.init({

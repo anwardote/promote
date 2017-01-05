@@ -6,7 +6,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>SL</th>
+            <th>ID</th>
             <th>Banking Title</th>
             <th>Acount No.</th>
             <th>Recharged For</th>
@@ -23,9 +23,14 @@
             <td style="width:10%">{{ strtolower($result->user_requested_for->email) }}</td>
             <td style="width:10%">{{ ucfirst(strtolower($result->status)) }}</td>
             <td style="width:15%">
+                @if($result->status !=='approved')
                 <a href="{{ URL::route('recharge.edit', ['id' => $result->id]) }}"><i class="fa fa-edit fa-2x"></i></a>
                 <a href="{{ URL::route('recharge.delete',['id' => $result->id, '_token' => csrf_token()])}}" class="margin-left-5 delete"><i class="fa fa-trash-o fa-2x"></i></a>
                 <span class="clearfix"></span>
+                    @else
+                    <a href="{{ URL::route('recharge.detail', ['id' => $result->id]) }}" title="Details"><i class="fa fa-bars fa-2x"></i></a>
+                    <span class="clearfix"></span>
+                    @endif
             </td>
         </tr>
         @endforeach

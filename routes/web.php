@@ -60,6 +60,10 @@ Route::group(['prefix' => 'admin'], function () {
         'as' => 'recharge.new',
         'uses' => 'RechargesController@getNew']);
 
+    Route::post('/recharge/new', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'recharge.new',
+        'uses' => 'RechargesController@postNew']);
 
     Route::get('/recharge/edit', [
         'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
@@ -70,6 +74,12 @@ Route::group(['prefix' => 'admin'], function () {
         'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
         'as' => 'recharge.edit',
         'uses' => 'RechargesController@postUpdate']);
+
+    Route::get('/recharge/detail', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'recharge.detail',
+        'uses' => 'RechargesController@getDetail']);
+
 
     Route::get('/recharge/delete', [
         'middleware' => array('can_see', 'admin_logged', 'has_perm:_delete'),

@@ -47,7 +47,7 @@ Admin area: add Tutorial
 
                         <div class="form-group">
                             {!! Form::label('description','Recharge Description:') !!}
-                            {!! Form::textarea('description', null, [ 'class' => 'form-control', 'placeholder' => 'Recharge description here.']) !!}
+                            {!! Form::textarea('description', null, [ 'class' => 'form-control tinymce', 'placeholder' => 'Recharge description here.']) !!}
                             <span class="text-danger">{!! $errors->first('introductions') !!}</span>
                         </div>
 

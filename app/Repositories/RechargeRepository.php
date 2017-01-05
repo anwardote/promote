@@ -72,6 +72,15 @@ class RechargeRepository
        return $q->paginate($per_page);
     }
 
+    public function whereall(array $search_filters = [], $requested_for)
+    {
+
+        $q = new Recharge();
+        $per_page = Config::get('acl_base.list_per_page');
+        // $q = $this->applySearchFilters($search_filters, $q);
+        return $q->where('requested_for', $requested_for)->paginate($per_page);
+    }
+
     /**
      * @param array $search_filters
      * @param       $q

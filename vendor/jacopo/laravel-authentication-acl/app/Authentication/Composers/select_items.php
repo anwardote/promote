@@ -25,12 +25,29 @@ View::composer(['laravel-authentication-acl::admin.user.edit', 'laravel-authenti
  * recharge output select
  */
 View::composer([
-    'laravel-authentication-acl::admin.recharge.new2',
-    'laravel-authentication-acl::admin.recharge.edit'
+    'laravel-authentication-acl::admin.recharge-info.new-admin',
+    'laravel-authentication-acl::admin.recharge-info.edit-admin',
+    'laravel-authentication-acl::admin.recharge-info.new',
+    'laravel-authentication-acl::admin.recharge-info.edit'
 ], function ($view) {
     $fh = new FormHelper();
     $values_recharge_type_output = $fh->getSelectRechargeTypeOutputValues();
     $view->with('recharge_type_output_values', $values_recharge_type_output);
+});
+
+
+/**
+ * recharge output select
+ */
+View::composer([
+    'laravel-authentication-acl::admin.recharge-info.new-admin',
+    'laravel-authentication-acl::admin.recharge-info.edit-admin',
+    'laravel-authentication-acl::admin.recharge-info.new',
+    'laravel-authentication-acl::admin.recharge-info.edit'
+], function ($view) {
+    $fh = new FormHelper();
+    $values_user_info_output = $fh->getSelectUserInfoOutputValues();
+    $view->with('user_info_output_values', $values_user_info_output);
 });
 
 
@@ -108,6 +125,8 @@ View::composer([
  * Device output select
  */
 View::composer([
+    'laravel-authentication-acl::admin.recharge-info.new-admin',
+    'laravel-authentication-acl::admin.recharge-info.edit-admin',
     'laravel-authentication-acl::admin.recharge-info.new',
     'laravel-authentication-acl::admin.recharge-info.edit',
     'laravel-authentication-acl::admin.recharge.edit',

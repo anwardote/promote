@@ -1,7 +1,7 @@
 @extends('laravel-authentication-acl::admin.layouts.base-2cols')
 
 @section('title')
-    Admin area: User Recharge Modify
+    Admin area: add snippets
 @stop
 
 @section('head_css')
@@ -11,8 +11,8 @@
     <style>
         #firmwareForm a.remove {
             float: right;
-            top:-25px;
-            right:10px;
+            top: -25px;
+            right: 10px;
         }
     </style>
 @stop
@@ -33,14 +33,19 @@
             @endif
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Modify Information</h3>
+                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> New Recharge</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-
                             {{-- group base form --}}
-                            {!! Form::model($data, [ 'url' => [URL::route('recharge.edit'), $data->id], 'method' => 'post', 'files' => true] ) !!}
+
+                            {!! Form::open(
+                            array(
+                            'route' => 'recharge.new',
+                            'class' => '',
+                            'files' => true)) !!}
+
                             <div class="form-group">
                                 {!! Form::label('recharge_type_id','Banking Name: *') !!}
                                 {!! Form::select('recharge_type_id', $recharge_type_output_values, $recharge_types->id, ["class"=>"form-control"]) !!}
@@ -49,13 +54,13 @@
 
                             <div class="form-group">
                                 {!! Form::label('date','Recharge Date: *') !!}
-                                {!! Form::date('date', $data->date, [ 'class' => 'form-control', 'placeholder' => 'Recharge Date here.']) !!}
+                                {!! Form::date('date', null, [ 'class' => 'form-control', 'placeholder' => 'Recharge Date here.']) !!}
                                 <span class="text-danger">{!! $errors->first('date') !!}</span>
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('ac_from','Recharge From: *') !!}
-                                {!! Form::text('ac_from', $data->ac_from, [ 'class' => 'form-control', 'placeholder' => 'Recharge From ACCOUNT Number here.']) !!}
+                                {!! Form::text('ac_from', null, [ 'class' => 'form-control', 'placeholder' => 'Recharge From ACCOUNT Number here.']) !!}
                                 <span class="text-danger">{!! $errors->first('ac_from') !!}</span>
                             </div>
 
@@ -68,21 +73,35 @@
 
                             <div class="form-group">
                                 {!! Form::label('amount','Recharge Amount: *') !!}
-                                {!! Form::text('amount', $data->amount, [ 'class' => 'form-control', 'placeholder' => 'Recharge Amount here.']) !!}
+                                {!! Form::text('amount', null, [ 'class' => 'form-control', 'placeholder' => 'Recharge Amount here.']) !!}
                                 <span class="text-danger">{!! $errors->first('amount') !!}</span>
                             </div>
 
                             <div class="form-group">
                                 {!! Form::label('trans_no','Recharge Transaction NO (If have): ') !!}
-                                {!! Form::text('trans_no', $data->trans_no, [ 'class' => 'form-control', 'placeholder' => 'Recharge Transaction Number here.']) !!}
+                                {!! Form::text('trans_no', null, [ 'class' => 'form-control', 'placeholder' => 'Recharge Transaction Number here.']) !!}
                                 <span class="text-danger">{!! $errors->first('trans_no') !!}</span>
                             </div>
 
-                            {!! Form::textarea('remark', $data->remark, [ 'class' => 'form-control', 'placeholder' => 'Extra Information/message here.']) !!}
-                            <span class="text-danger">{!! $errors->first('remark') !!}</span>
-                        </div>
+                                   <div class="form-group">
+                                {!! Form::label('admin_reply','Admin Message to the User: ') !!}
+                                {!! Form::textarea('admin_reply', null, [ 'class' => 'form-control', 'placeholder' => 'Admin Message for Users here.']) !!}
+                                <span class="text-danger">{!! $errors->first('admin_reply') !!}</span>
+                            </div>
 
-                             {!! Form::hidden('id') !!}
+                            <div class="form-group">
+                                {!! Form::label('requested_for','Request For: *') !!}
+                                {!! Form::select('requested_for', $user_info_output_values, '', ["class"=>"form-control permission-select chosen-select"]) !!}
+                                <span class="text-danger">{!! $errors->first('requested_for') !!}</span>
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('status','Select status: *') !!}
+                                {!! Form::select('status', $status_values, '', ["class"=>"form-control "]) !!}
+                                <span class="text-danger">{!! $errors->first('status') !!}</span>
+                            </div>
+
+                            {!! Form::hidden('id') !!}
 
                             {!! Form::submit('Save', array("class"=>"btn btn-info pull-right ")) !!}
                             {!! Form::close() !!}
@@ -140,8 +159,6 @@
         });
 
 
-
-
         tinymce.init({
             selector: "textarea.tinymce",
             skin: "dick-light",
@@ -168,7 +185,7 @@
 
         $("#recharge_type_id").change(function () {
             var recharge_type = $(this).val();
-            var url = '<?php route("recharge.new");?>?id={{$data->id}}&&recharge_type=' + recharge_type
+            var url = '<?php route("recharge.new");?>?recharge_type=' + recharge_type
             window.location = url;
         })
 

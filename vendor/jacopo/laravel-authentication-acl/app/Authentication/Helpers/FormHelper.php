@@ -10,6 +10,7 @@ namespace LaravelAcl\Authentication\Helpers;
 use LaravelAcl\Authentication\Repository\EloquentPermissionRepository as PermissionRepository;
 use LaravelAcl\Authentication\Repository\SentryGroupRepository;
 use App\Repositories\RechargeTypeRepository;
+use LaravelAcl\Authentication\Repository\SentryUserRepository;
 use App\Repositories\CountryRepository;
 use App\Repositories\FcategoryRepository;
 use App\Repositories\DeviceRepository;
@@ -29,6 +30,7 @@ class FormHelper {
      */
     protected $repository_groups;
     protected $repository_rechargetype;
+    protected $repository_userinfo;
     protected $repository_countries;
     protected $repository_fcategories;
     protected $repository_device;
@@ -36,10 +38,11 @@ class FormHelper {
     protected $repository_driverType;
     protected $repository_cmsCategory;
 
-    public function __construct(PermissionRepository $rp = null, SentryGroupRepository $rg = null, RechargeTypeRepository $rt, CountryRepository $cr = null, FcategoryRepository $fcr = null, DeviceRepository $dr = null, DriverNameRepository $dnr = null, DriverTypeRepository $dtr = null, CmsCategoryRepository $cmsCategory = null) {
+    public function __construct(PermissionRepository $rp = null, SentryGroupRepository $rg = null, RechargeTypeRepository $rt = null, SentryUserRepository $ui = null, CountryRepository $cr = null, FcategoryRepository $fcr = null, DeviceRepository $dr = null, DriverNameRepository $dnr = null, DriverTypeRepository $dtr = null, CmsCategoryRepository $cmsCategory = null) {
         $this->repository_permission = $rp ? $rp : new PermissionRepository();
         $this->repository_groups = $rg ? $rg : new SentryGroupRepository();
         $this->repository_rechargetype = $rt ? $rt : new RechargeTypeRepository();
+        $this->repository_userinfo = $ui ? $ui : new SentryUserRepository();
         $this->repository_countries = $cr ? $cr : new CountryRepository();
         $this->repository_fcategories = $fcr ? $fcr : new FcategoryRepository();
         $this->repository_device = $dr ? $dr : new DeviceRepository();
@@ -84,6 +87,11 @@ class FormHelper {
         return $this->getSelectValues("repository_rechargetype", 'id', 'type_name');
     }
 
+    public function getSelectUserInfoOutputValues() {
+        return $this->getSelectValues("repository_userinfo", 'id', 'email');
+    }
+
+
     public function getSelectCountryOutputValues() {
         return $this->getSelectValues("repository_countries", 'id', 'country_name');
     }
@@ -106,7 +114,7 @@ class FormHelper {
     }
 
     public function getSelectStatusValues() {
-        $status_output_array = array("PUBLISHED" => "Published", "DRAFT" => "Draft", "PENDING" => "Pending", "HIDDEN" => "Hidden");
+        $status_output_array = array("approved" => "Approved", "pending" => "Pending", "cancel" => "Cancel", "invalid" => "Invalid");
         foreach ($status_output_array as $key => $val)
             $array_values[$key] = $val;
 

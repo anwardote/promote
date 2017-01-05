@@ -210,8 +210,6 @@
                         var url = '<?php route("page.new");?>?page=' + page
                         window.location = url;
                     })
-
-
                 });
             </script>
 

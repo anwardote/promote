@@ -14,6 +14,9 @@
             top: -25px;
             right: 10px;
         }
+        table .lefttd{
+            width: 40%;
+        }
     </style>
 @stop
 
@@ -33,25 +36,70 @@
             @endif
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> New Recharge</h3>
+                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Modify Information</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-                            {{-- group base form --}}
+                            <h3 style="padding: 10px; text-align: center">Recharge Details Information </h3>
+                            <table class="table table-hover">
 
-                            {!! Form::open(
-                            array(
-                            'route' => 'recharge.new',
-                            'class' => '',
-                            'files' => true)) !!}
+                                <tr>
+                                    <td class="lefttd">ID</td>
+                                    <td>{{ $data->id }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Banking Name</td>
+                                    <td>{{ $data->rechargeType->type_name }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Date</td>
+                                    <td>{{ $data->date}} - (YY-MM-DD)</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Rechare From (Account Number)</td>
+                                    <td>{{ $data->ac_from }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Rechare To (Account Number)</td>
+                                    <td>{{ $data->ac_to }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="lefttd">Transaction Number</td>
+                                    <td>{{ $data->trans_no }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Extra Information</td>
+                                    <td>{{ $data->remark }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Status</td>
+                                    <td>{{ $data->status }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Created By</td>
+                                    <td>{{ $data->user()->first()->email }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Rechared by</td>
+                                    <td>{{ $data->user_requested_for()->first()->email }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="lefttd">Created Time</td>
+                                    <td>{{ $data->created_at }}</td>
+                                </tr>
 
 
-                            <span class="text-danger">{!! $errors->first('noted') !!}</span>
-                            {!! Form::hidden('id') !!}
-
-                            {!! Form::submit('Save', array("class"=>"btn btn-info pull-right ")) !!}
-                            {!! Form::close() !!}
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -129,7 +177,6 @@
             });
             return false;
         }
-
 
     </script>
 

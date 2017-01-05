@@ -31,132 +31,150 @@ use LaravelAcl\Authentication\Validators\UserProfileValidator;
 use LaravelAcl\Authentication\Interfaces\AuthenticateInterface;
 use App\Http\Models\Recharge;
 use App\Repositories\RechargeRepository;
+use App\Repositories\RechargeTypeRepository;
 use App\Repositories\GlobalRepository;
 use App\Repositories\ViewCategoryRepository;
 
-class RechargesController extends Controller {
+class RechargesController extends Controller
+{
 
     protected $auth;
     protected $logged_user;
     protected $rechargeRepository;
+    protected $rechargeTypeRepository;
     protected $globalrepository;
     protected $viewCategoryRepository;
 
-    public function __construct(AuthenticateInterface $auth, RechargeRepository $rechargeRepo, GlobalRepository $globalRepo, ViewCategoryRepository $viewCategoryRepo) {
+    public function __construct(AuthenticateInterface $auth, RechargeRepository $rechargeRepo, RechargeTypeRepository $rechargeTypeRepo, GlobalRepository $globalRepo, ViewCategoryRepository $viewCategoryRepo)
+    {
         $this->auth = $auth;
         $this->logged_user = $this->auth->getLoggedUser();
         $this->rechargeRepository = $rechargeRepo;
+        $this->rechargeTypeRepository = $rechargeTypeRepo;
         $this->globalrepository = $globalRepo;
         $this->viewCategoryRepository = $viewCategoryRepo;
     }
 
-    public function getIndex() {
+    public function getIndex()
+    {
         $info = "welcome to web page";
         return View::make('admin.home.index')->with(['user_data' => $this->logged_user, 'info' => $info]);
     }
 
-    public function getAdminList(Request $request) {
-        $results = $this->rechargeRepository->all($request->except(['page']));
+    public function getAdminList(Request $request)
+    {
+        $logged_user = $this->auth->getLoggedUser();
+        $user_group = $logged_user->groups()->first()->name;
+        if ($user_group === 'superadmin' || $user_group === 'admin') {
+            $results = $this->rechargeRepository->all($request->except(['page']));
+            return View::make('laravel-authentication-acl::admin.recharge-info.list')->with(['user_data' => $this->auth->getLoggedUser(), 'results' => $results, 'request' => $request]);
+        }
+
+        $results = $this->rechargeRepository->whereall($request->except(['page']), $logged_user->id);
         return View::make('laravel-authentication-acl::admin.recharge-info.list')->with(['user_data' => $this->auth->getLoggedUser(), 'results' => $results, 'request' => $request]);
     }
 
-    public function getNew(Request $request) {
-        $results = $this->rechargeRepository->all($request->except(['page']));
-        return View::make('laravel-authentication-acl::admin.recharge-info.new2')->with(['user_data' => $this->auth->getLoggedUser(), 'results' => $results, 'request' => $request]);
+    public function getNew(Request $request)
+    {
+        $logged_user = $this->auth->getLoggedUser();
+        $user_group = $logged_user->groups()->first()->name;
+        if (empty($request->recharge_type)) {
+            $recharge_types = $this->rechargeTypeRepository->find(5);
+        } else {
+            $recharge_types = $this->rechargeTypeRepository->find($request->recharge_type);
+        }
+
+        if ($user_group === 'superadmin' || $user_group === 'admin') {
+            return View::make('laravel-authentication-acl::admin.recharge-info.new-admin')->with(['user_data' => $this->auth->getLoggedUser(), 'recharge_types' => $recharge_types, 'request' => $request]);
+        }
+        return View::make('laravel-authentication-acl::admin.recharge-info.new')->with(['user_data' => $this->auth->getLoggedUser(), 'recharge_types' => $recharge_types, 'request' => $request]);
     }
 
-    public function postNew(Request $request) {
+    public function postNew(Request $request)
+    {
         $logged_user = $this->auth->getLoggedUser();
 
-        $downloadLink = implode(",", $request->download_link);
-        $request->merge(array('download_link' => $downloadLink));
+        $this->validate($request, ['recharge_type_id' => 'required', 'amount' => 'required|numeric', 'date' => 'required', 'ac_from' => 'required', 'ac_to' => 'required', 'trans_no' => 'required', 'status' => 'required', 'requested_for' => 'required']);
 
-        $this->validate($request, ['fcategory_id' => 'required', 'view_category_id'=>'required', 'device_id' => 'required', 'device_model' => 'required', 'device_version' => 'required', 'status' => 'required', 'download_link' => 'required']);
-
-
-        /* START custom value set */
-        $request->merge(array('d_links' => $request->download_link));
-        if (isset($request->country) && count($request->country) > 0) {
-            $countryArr = implode(",", $request->country);
-            $request->merge(array('country_id' => $countryArr));
-        } else {
-            $request->merge(array('country_id' => null));
-        }
-        if ($request->tutorial_id == "" || empty($request->tutorial_id)) {
-            $request->merge(array('tutorial_id' => NULL));
-        }
-        if (isset($request->featured) && $request->featured == 1) {
-            $request->merge(array('featured' => 1));
-        } else {
-            $request->merge(array('featured' => 0));
-        }
         $request->merge(array('user_id' => $logged_user->id));
-        /* START custom value set */
-
-
         try {
-            $input = $request->except(['_token', 'country']);
-            $this->firmwareRepository->create($input);
+            $input = $request->except(['_token']);
+            $this->rechargeRepository->create($input);
         } catch (JacopoExceptionsInterface $e) {
             $errors = $this->f->getErrors();
-            return Redirect::route("firmware.new", [])->withInput()->withErrors($errors);
+            $user_group = $logged_user->groups()->first()->name;
+
+            if ($user_group === 'superadmin' || $user_group === 'admin') {
+                return Redirect::route("recharge.new-admin", [])->withInput()->withErrors($errors);
+            }
+            return Redirect::route("recharge.new", [])->withInput()->withErrors($errors);
         }
-        return Redirect::route('firmware.list')->withMessage(Config::get('acl_messages.flash.success.firmware_new_success'));
+        return Redirect::route('recharge.list')->withMessage(Config::get('acl_messages.flash.success.firmware_new_success'));
     }
 
-    public function getUpdate(Request $request) {
-        $category=$this->globalrepository->findcatForFirmware([1,2]);
-        $result = $this->firmwareRepository->find($request->id);
-        return View::make('laravel-authentication-acl::admin.firmware.edit')->with(['data' => $result, 'view_category'=>$category]);
+    public function getUpdate(Request $request)
+    {
+        $logged_user = $this->auth->getLoggedUser();
+        $user_group = $logged_user->groups()->first()->name;
+        $results = $this->rechargeRepository->find($request->id);
+
+
+        if ($request->recharge_type == null || empty($request->recharge_type)) {
+            $recharge_types = $this->rechargeTypeRepository->find($results->recharge_type_id);
+        } else {
+            $recharge_types = $this->rechargeTypeRepository->find($request->recharge_type);
+        }
+
+        if ($user_group === 'superadmin' || $user_group === 'admin') {
+            return View::make('laravel-authentication-acl::admin.recharge-info.edit-admin')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results, 'recharge_types'=>$recharge_types]);
+        }
+        if ($results->status === 'approved') {
+            echo '<h1 style="color: red">You are not allow to modify approved recharge information.</h1>';
+            exit;
+        }
+        return View::make('laravel-authentication-acl::admin.recharge-info.edit')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results, 'recharge_types'=>$recharge_types]);
     }
 
-    public function postUpdate(Request $request) {
-        $downloadLink = implode(",", $request->download_link);
-        $request->merge(array('download_link' => $downloadLink));
 
-        $this->validate($request, ['fcategory_id' => 'required', 'view_category_id'=>'required', 'device_id' => 'required', 'device_model' => 'required', 'device_version' => 'required', 'status' => 'required', 'download_link' => 'required']);
-
-
-        /* START custom value set */
-        $request->merge(array('d_links' => $request->download_link));
-        if (isset($request->country) && count($request->country) > 0) {
-            $countryArr = implode(",", $request->country);
-            $request->merge(array('country_id' => $countryArr));
-        } else {
-            $request->merge(array('country_id' => null));
-        }
-        if ($request->tutorial_id == "" || empty($request->tutorial_id)) {
-            $request->merge(array('tutorial_id' => NULL));
-        }
-        if (isset($request->featured) && $request->featured == 1) {
-            $request->merge(array('featured' => 1));
-        } else {
-            $request->merge(array('featured' => 0));
-        }
-        /* START custom value set */
-
+    public function postUpdate(Request $request)
+    {
+        $logged_user = $this->auth->getLoggedUser();
+        $this->validate($request, ['recharge_type_id' => 'required', 'amount' => 'required|numeric', 'date' => 'required', 'ac_from' => 'required', 'ac_to' => 'required', 'trans_no' => 'required']);
 
         try {
-            $input = $request->except(['_token', 'country']);
-            $this->firmwareRepository->update($input['id'], $input);
+            $input = $request->except(['_token']);
+            $this->rechargeRepository->update($input['id'], $input);
         } catch (JacopoExceptionsInterface $e) {
             $errors = $this->f->getErrors();
-            return Redirect::route("firmware.edit", [])->withInput()->withErrors($errors);
+            $user_group = $logged_user->groups()->first()->name;
+            if ($user_group === 'superadmin' || $user_group === 'admin') {
+                return Redirect::route("recharge.edit-admin", [])->withInput()->withErrors($errors);
+            }
+            return Redirect::route("recharge.edit", [])->withInput()->withErrors($errors);
         }
-        return Redirect::route('firmware.list')->withMessage(Config::get('acl_messages.flash.success.firmware_edit_success'));
+        return Redirect::route('recharge.list')->withMessage(Config::get('acl_messages.flash.success.firmware_edit_success'));
     }
 
-    public function delete(Request $request) {
+    public function getDetail(Request $request)
+    {
+        $logged_user = $this->auth->getLoggedUser();
+        $results = $this->rechargeRepository->find($request->id);
+        return View::make('laravel-authentication-acl::admin.recharge-info.detail')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results]);
+    }
+
+    public function delete(Request $request)
+    {
         $this->firmwareRepository->delete($request->id);
         return Redirect::route('firmware.list')->withMessage(Config::get('acl_messages.flash.success.firmware_delete_success'));
     }
 
     /*CMS Page View*/
 
-    public function getFirmware(Request $request){
+    public function getFirmware(Request $request)
+    {
         $results = $this->firmwareRepository->allWhere($request->except(['page']), $request);
         $category = $this->viewCategoryRepository->find($request->view_category_id);
-        return View::make('admin.pages.firmwareCategoryFirmwarDevice')->with(['results'=>$results, 'request'=>$request, 'category'=>$category]);
+        return View::make('admin.pages.firmwareCategoryFirmwarDevice')->with(['results' => $results, 'request' => $request, 'category' => $category]);
     }
 
 }

@@ -99,7 +99,7 @@ class RechargeTypeRepository {
      */
     public function find($id) {
         try {
-           $q = RechargeType::find($id);
+            $q = RechargeType::find($id);
         } catch (GroupNotFoundException $e) {
             throw new NotFoundException;
         }

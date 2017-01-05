@@ -126,13 +126,13 @@ class RechargesController extends Controller
         }
 
         if ($user_group === 'superadmin' || $user_group === 'admin') {
-            return View::make('laravel-authentication-acl::admin.recharge-info.edit-admin')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results, 'recharge_types'=>$recharge_types]);
+            return View::make('laravel-authentication-acl::admin.recharge-info.edit-admin')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results, 'recharge_types' => $recharge_types]);
         }
         if ($results->status === 'approved') {
             echo '<h1 style="color: red">You are not allow to modify approved recharge information.</h1>';
             exit;
         }
-        return View::make('laravel-authentication-acl::admin.recharge-info.edit')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results, 'recharge_types'=>$recharge_types]);
+        return View::make('laravel-authentication-acl::admin.recharge-info.edit')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results, 'recharge_types' => $recharge_types]);
     }
 
 
@@ -157,24 +157,15 @@ class RechargesController extends Controller
 
     public function getDetail(Request $request)
     {
-        $logged_user = $this->auth->getLoggedUser();
         $results = $this->rechargeRepository->find($request->id);
         return View::make('laravel-authentication-acl::admin.recharge-info.detail')->with(['user_data' => $this->auth->getLoggedUser(), 'data' => $results]);
     }
 
     public function delete(Request $request)
     {
-        $this->firmwareRepository->delete($request->id);
-        return Redirect::route('firmware.list')->withMessage(Config::get('acl_messages.flash.success.firmware_delete_success'));
+        $this->rechargeRepository->delete($request->id);
+        return Redirect::route('recharge.list')->withMessage(Config::get('acl_messages.flash.success.firmware_delete_success'));
     }
 
-    /*CMS Page View*/
-
-    public function getFirmware(Request $request)
-    {
-        $results = $this->firmwareRepository->allWhere($request->except(['page']), $request);
-        $category = $this->viewCategoryRepository->find($request->view_category_id);
-        return View::make('admin.pages.firmwareCategoryFirmwarDevice')->with(['results' => $results, 'request' => $request, 'category' => $category]);
-    }
 
 }

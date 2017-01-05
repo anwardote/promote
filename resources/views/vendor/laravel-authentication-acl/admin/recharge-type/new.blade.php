@@ -51,7 +51,9 @@ Admin area: add Tutorial
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('description','Recharge Description:') !!}
+
+                            {!! Form::label('description','Recharge Description:') !!}<br>
+                            <span class="text-info">Dynamic Variable : '[banking_name]' and '[bank_account]' </span>
                             {!! Form::textarea('description', null, [ 'class' => 'form-control tinymce', 'placeholder' => 'Recharge Description here.']) !!}
                             <span class="text-danger">{!! $errors->first('description') !!}</span>
                         </div>

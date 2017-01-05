@@ -17,6 +17,20 @@ Route::group(['prefix' => ''], function () {
         'as' => 'home',
         'uses' => 'CMSViewController@getHomePage']);
 
+    Route::get('/howtouse', [
+        'middleware' => array('can_see'),
+        'as' => 'howtouse',
+        'uses' => 'CMSViewController@getFirmwarePage']);
+
+    Route::get('/howtorecharge', [
+        'middleware' => array('can_see'),
+        'as' => 'howtorecharge',
+        'uses' => 'CMSViewController@getHowtorechargePage']);
+
+
+//    'uses' => 'CMSViewController@getToolPage']);
+
+
     Route::get('/firmware', [
         'middleware' => array('can_see'),
         'as' => 'firmware',

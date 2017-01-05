@@ -30,6 +30,7 @@ use App\Http\Models\CmsPage;
 use App\Http\Models\CmsPost;
 use App\Http\Models\CmsCategory;
 use App\Repositories\CmsPageRepository;
+use App\Http\Models\RechargeType;
 use App\Repositories\TutorialRepository;
 use App\Repositories\DriverNameRepository;
 use App\Repositories\ToolRepository;
@@ -66,6 +67,21 @@ class CMSViewController extends Controller
         }
         $home = CmsPost::where([['cms_category_id', 1], ['status', 'PUBLISHED']])->get();
         return View::make('admin.pages.page')->with(['sliders' => $sliders, 'page' => $page, 'home_rows' => $home]);
+    }
+
+
+
+    public function getHowtorechargePage()
+    {
+        $page = $this->cmsPageRepository->findBySlugOrId('tool');
+        $sliders = '';
+        if ($page->banner_type == 'slider') {
+            $sliders = CmsPost::where([['cms_category_id', 10], ['status', 'PUBLISHED']])->get();
+        }
+        $cms_Post = CmsPost::where([['cms_category_id', 10], ['status', 'PUBLISHED']])->get();
+        $rechargeType = RechargeType::get();
+
+        return View::make('admin.pages.howtorecharge')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'rechargeType' => $rechargeType]);
     }
 
     public function getFirmwarePage()

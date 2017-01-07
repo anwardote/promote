@@ -29,11 +29,8 @@ use LaravelAcl\Authentication\Validators\UserValidator;
 use LaravelAcl\Library\Exceptions\JacopoExceptionsInterface;
 use LaravelAcl\Authentication\Validators\UserProfileValidator;
 use LaravelAcl\Authentication\Interfaces\AuthenticateInterface;
-use App\Http\Models\Recharge;
 use App\Repositories\RechargeRepository;
 use App\Repositories\RechargeTypeRepository;
-use App\Repositories\GlobalRepository;
-use App\Repositories\ViewCategoryRepository;
 
 class RechargesController extends Controller
 {
@@ -42,17 +39,15 @@ class RechargesController extends Controller
     protected $logged_user;
     protected $rechargeRepository;
     protected $rechargeTypeRepository;
-    protected $globalrepository;
-    protected $viewCategoryRepository;
 
-    public function __construct(AuthenticateInterface $auth, RechargeRepository $rechargeRepo, RechargeTypeRepository $rechargeTypeRepo, GlobalRepository $globalRepo, ViewCategoryRepository $viewCategoryRepo)
+
+    public function __construct(AuthenticateInterface $auth, RechargeRepository $rechargeRepo, RechargeTypeRepository $rechargeTypeRepo)
     {
         $this->auth = $auth;
         $this->logged_user = $this->auth->getLoggedUser();
         $this->rechargeRepository = $rechargeRepo;
         $this->rechargeTypeRepository = $rechargeTypeRepo;
-        $this->globalrepository = $globalRepo;
-        $this->viewCategoryRepository = $viewCategoryRepo;
+
     }
 
     public function getIndex()

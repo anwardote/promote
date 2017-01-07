@@ -19,7 +19,6 @@
         $var = str_replace($search, $replace, $var);
         return $var;
     }
-
     ?>
     <!---slider----->
     @if(!empty($sliders))
@@ -88,7 +87,7 @@
                         <h2>{!! setVar($home->title, $dynamic_var) !!}</h2>
                         {{--{!! setVar($home->content, $dynamic_var) !!}--}}
                         <?php $content= setVar($home->content, $dynamic_var);
-                        $content=explode('[stop]', $content);
+                        $content=explode('[more]', $content);
                         $content=$content[0];
                         ?>
                         {{--{!! $content !!}--}}

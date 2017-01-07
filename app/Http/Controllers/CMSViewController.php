@@ -33,30 +33,18 @@ use App\Http\Models\CmsCategory;
 use App\Repositories\CmsPageRepository;
 use App\Repositories\CmsPostRepository;
 use App\Http\Models\RechargeType;
-use App\Repositories\TutorialRepository;
-use App\Repositories\DriverNameRepository;
-use App\Repositories\ToolRepository;
-use App\Http\Models\Firmware;
-use App\Http\Models\Driver;
-use App\Http\Models\Tool;
-use App\Http\Models\Tutorial;
-use App\Http\Models\ViewCategory;
-
 
 class CMSViewController extends Controller
 {
 
     protected $auth;
     protected $cmsPageRepository;
-    protected $tutorialRespository;
-    protected $toolRepository;
 
 
-    public function __construct(CmsPageRepository $CmsPageRepo, TutorialRepository $tutorialRepo, ToolRepository $toolRepo)
+
+    public function __construct(CmsPageRepository $CmsPageRepo)
     {
         $this->cmsPageRepository = $CmsPageRepo;
-        $this->tutorialRespository = $tutorialRepo;
-        $this->toolRepository = $toolRepo;
     }
 
     public function getHomePage()
@@ -64,7 +52,7 @@ class CMSViewController extends Controller
         $page = $this->cmsPageRepository->findBySlugOrId('home');
         $sliders = '';
         if ($page->banner_type == 'slider') {
-            $sliders = CmsPost::where([['cms_category_id', 6], ['status', 'PUBLISHED']])->get();
+            $sliders = CmsPost::where([['cms_category_id', 5], ['status', 'PUBLISHED']])->get();
         }
         $home = CmsPost::where([['cms_category_id', 1], ['status', 'PUBLISHED']])->get();
         return View::make('admin.pages.page')->with(['sliders' => $sliders, 'page' => $page, 'home_rows' => $home, 'dynamic_var' => $this->set_variable()]);
@@ -75,117 +63,30 @@ class CMSViewController extends Controller
         $page = $this->cmsPageRepository->findBySlugOrId('how_to_use');
         $sliders = '';
         if ($page->banner_type == 'slider') {
-            $sliders = CmsPost::where([['cms_category_id', 12], ['status', 'PUBLISHED']])->get();
+            $sliders = CmsPost::where([['cms_category_id', 6], ['status', 'PUBLISHED']])->get();
         }
-
-        $home = CmsPost::where([['cms_category_id', 11], ['status', 'PUBLISHED']])->get();
+        $home = CmsPost::where([['cms_category_id', 2], ['status', 'PUBLISHED']])->get();
         return View::make('admin.pages.howtouse')->with(['sliders' => $sliders, 'page' => $page, 'home_rows' => $home, 'dynamic_var' => $this->set_variable()]);
     }
 
 
     public function getHowtorechargePage()
     {
-        $page = $this->cmsPageRepository->findBySlugOrId('tool');
-        $sliders = '';
-        if ($page->banner_type == 'slider') {
-            $sliders = CmsPost::where([['cms_category_id', 10], ['status', 'PUBLISHED']])->get();
-        }
-        $cms_Post = CmsPost::where([['cms_category_id', 10], ['status', 'PUBLISHED']])->get();
-        $rechargeType = RechargeType::get();
-
-        return View::make('admin.pages.howtorecharge')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'rechargeType' => $rechargeType]);
-    }
-
-    public function getFirmwarePage()
-    {
-
-        $page = $this->cmsPageRepository->findBySlugOrId('firmware');
+        $page = $this->cmsPageRepository->findBySlugOrId('how_to_recharge');
         $sliders = '';
         if ($page->banner_type == 'slider') {
             $sliders = CmsPost::where([['cms_category_id', 7], ['status', 'PUBLISHED']])->get();
         }
-        $cms_Post = CmsPost::where([['cms_category_id', 2], ['status', 'PUBLISHED']])->get();
-        $android = ViewCategory::where('fcategory_id', 1)->take(11)->orderBy('created_at', 'desc')->get();
-        $normal = ViewCategory::where('fcategory_id', 2)->take(11)->orderBy('created_at', 'desc')->get();
+        $cms_Post = CmsPost::where([['cms_category_id', 6], ['status', 'PUBLISHED']])->get();
+        $rechargeType = RechargeType::get();
 
-        $androidShowAll = '';
-        $normalShowAll = '';
-        if (count($android) > 10) {
-            $androidShowAll = true;
-            unset($android[11]);
-        }
-        if (count($normal) > 10) {
-            $normalShowAll = true;
-            unset($normal[11]);
-        }
-        return View::make('admin.pages.firmware')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'android' => $android, 'normal' => $normal, 'androidShowAll' => $androidShowAll, 'normalShowAll' => $normalShowAll]);
+        return View::make('admin.pages.howtorecharge')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'rechargeType' => $rechargeType, 'dynamic_var' => $this->set_variable()]);
     }
 
-
-    public function getTutorialPage()
+    public function getContactUsPage()
     {
-        $page = $this->cmsPageRepository->findBySlugOrId('tutorial');
-        $sliders = '';
-        if ($page->banner_type == 'slider') {
-            $sliders = CmsPost::where([['cms_category_id', 8], ['status', 'PUBLISHED']])->get();
-        }
-        $cms_Post = CmsPost::where([['cms_category_id', 8], ['status', 'PUBLISHED']])->get();
-        $tutorial = Tutorial::take(21)->orderBy('created_at', 'desc')->first()->get();
-
-        $ShowAll = '';
-        if (count($tutorial) > 20) {
-            $ShowAll = true;
-            unset($tutorial[21]);
-        }
-        return View::make('admin.pages.tutorial')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'tutorial' => $tutorial, 'showall' => $ShowAll]);
-    }
-
-    public function getTutorialCategoryView(Request $request)
-    {
-        $results = $this->tutorialRespository->all($request->except(['page']), $request);
-        return View::make('admin.pages.tutorial-categoryview')->with(['results' => $results, 'request' => $request]);
-    }
-
-
-    public function getDriverPage()
-    {
-        $page = $this->cmsPageRepository->findBySlugOrId('driver');
-        $sliders = '';
-        if ($page->banner_type == 'slider') {
-            $sliders = CmsPost::where([['cms_category_id', 9], ['status', 'PUBLISHED']])->get();
-        }
-        $cms_Post = CmsPost::where([['cms_category_id', 9], ['status', 'PUBLISHED']])->get();
-        $driverCategory = ViewCategory::where('fcategory_id', 3)->take(21)->orderBy('created_at', 'desc')->get();
-        $ShowAll = '';
-        if (count($driverCategory) > 20) {
-            $ShowAll = true;
-            unset($driverCategory[21]);
-        }
-
-        return View::make('admin.pages.driver')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'viwCategory' => $driverCategory, 'showall' => $ShowAll]);
-    }
-
-    public function getToolPage()
-    {
-        $page = $this->cmsPageRepository->findBySlugOrId('tool');
-        $sliders = '';
-        if ($page->banner_type == 'slider') {
-            $sliders = CmsPost::where([['cms_category_id', 10], ['status', 'PUBLISHED']])->get();
-        }
-        $cms_Post = CmsPost::where([['cms_category_id', 10], ['status', 'PUBLISHED']])->get();
-        $toolCategory = Tool::take(21)->orderBy('created_at', 'desc')->first()->get();
-        $ShowAll = '';
-        if (count($toolCategory) > 20) {
-            $ShowAll = true;
-            unset($toolCategory[21]);
-        }
-        return View::make('admin.pages.tool')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'viwCategory' => $toolCategory, 'showall' => $ShowAll]);
-    }
-
-    public function getToolCategoryView(Request $request)
-    {
-        $results = $this->toolRepository->all($request->except(['page']), $request);
-        return View::make('admin.pages.tool-categoryview')->with(['results' => $results, 'request' => $request]);
+        $home = CmsPost::where([['cms_category_id', 4], ['status', 'PUBLISHED']])->get();
+        return View::make('admin.contacts.create')->with(['contact_rows' => $home, 'dynamic_var' => $this->set_variable()]);
     }
 
     public function set_variable()
@@ -200,7 +101,7 @@ class CMSViewController extends Controller
     public function getDetail(Request $request)
     {
         $postRepo = new CmsPostRepository();
-        $result =(object) $postRepo->getDetailbyslug($request->slug);
+        $result = (object)$postRepo->getDetailbyslug($request->slug);
         return View::make('admin.pages.detailByslug')->with(['result' => $result, 'request' => $request]);
     }
 }

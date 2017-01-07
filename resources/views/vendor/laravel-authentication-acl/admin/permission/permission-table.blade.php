@@ -1,3 +1,7 @@
+<?php
+$authentication = \App::make('authenticator');
+$user = $authentication->getLoggedUser();
+?>
 <div class="row">
     <div class="col-md-12 margin-bottom-12">
         <a href="{!! URL::route('permission.edit') !!}" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Add New</a>
@@ -18,7 +22,7 @@
                 <td style="width:45%">{!! $permission->description !!}</td>
                 <td style="width:45%">{!! $permission->permission !!}</td>
                 <td style="witdh:10%">
-                    @if(! $permission->protected)
+                    @if(! $permission->protected && $user->id===1)
                     <a href="{!! URL::route('permission.edit', ['id' => $permission->id]) !!}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
                     <a href="{!! URL::route('permission.delete',['id' => $permission->id, '_token' => csrf_token()]) !!}" class="margin-left-5"><i class="fa fa-trash-o delete fa-2x"></i></a>
                     @else

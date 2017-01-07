@@ -24,7 +24,7 @@ Admin area: add Tutorial
         @endif
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Add New Recharge Type</h3>
+                <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Add New Bank</h3>
             </div>
             <div class="panel-body">
                 <div class="row">

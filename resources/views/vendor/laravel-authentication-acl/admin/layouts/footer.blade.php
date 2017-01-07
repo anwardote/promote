@@ -19,3 +19,8 @@
     </div><!-- /container -->
 </footer>     
 <!--/Footer-->
+
+
+<?php
+print_r($status_values);
+?>

@@ -1,3 +1,7 @@
+<?php
+$authentication = \App::make('authenticator');
+$user = $authentication->getLoggedUser();
+?>
 <div class="row margin-bottom-12">
     <div class="col-md-12">
         <a href="{!! URL::route('groups.edit') !!}" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Add New</a>
@@ -13,10 +17,13 @@
     </thead>
     <tbody>
         @foreach($groups as $group)
+            @if($user->id!==1 && $group->id===1)
+                @continue
+            @endif
         <tr>
             <td style="width:90%">{!! $group->name !!}</td>
             <td style="width:10%">
-            @if(! $group->protected)
+            @if(! $group->protected && $user->id===1)
                 <a href="{!! URL::route('groups.edit', ['id' => $group->id]) !!}"><i class="fa fa-edit fa-2x"></i></a>
                 <a href="{!! URL::route('groups.delete',['id' => $group->id, '_token' => csrf_token()]) !!}" class="margin-left-5 delete"><i class="fa fa-trash-o fa-2x"></i></a>
                 <span class="clearfix"></span>

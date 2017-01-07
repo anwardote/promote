@@ -1,3 +1,7 @@
+<?php
+$authentication = \App::make('authenticator');
+$loginUser = $authentication->getLoggedUser();
+?>
 <div class="row margin-bottom-12">
 
     {{--@include('laravel-authentication-acl::admin.tutorial.search')--}}
@@ -16,10 +20,7 @@
         <?php
         $i = 1;
         ?>
-        <?php
-        //dd($results);   
-        ?>
-        @foreach($results as $result) 
+        @foreach($results as $result)
         <tr>
             <td style="width:10%">{{ $i++ }}</td>
             <td style="width:30%">{{ ucfirst($result->name) }}</td>
@@ -31,7 +32,9 @@
             </td>
             <td style="width:15%">
                 <a href="{{ URL::route('category.edit', ['id' => $result->id]) }}"><i class="fa fa-edit fa-2x"></i></a>
+                @if($loginUser->id===1)
                 <a href="{{ URL::route('category.delete',['id' => $result->id, '_token' => csrf_token()])}}" class="margin-left-5 delete"><i class="fa fa-trash-o fa-2x"></i></a>
+                @endif
                 <span class="clearfix"></span>
             </td>
         </tr>

@@ -85,7 +85,10 @@
                     <div class="col-sm-9">
                         <h2>{!! setVar($home->title, $dynamic_var) !!}</h2>
                         {{--{!! setVar($home->content, $dynamic_var) !!}--}}
-                        <?php $content= setVar($home->content, $dynamic_var) ?>
+                        <?php $content= setVar($home->content, $dynamic_var);
+                        $content=explode('[more]', $content);
+                        $content=$content[0];
+                        ?>
                         {!!  substr($content, 0, strrpos(substr($content, 0, 850), " ")).' ...' !!} <span style="color:red">Learn more</span>
                     </div>
                 </a>

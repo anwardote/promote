@@ -25,7 +25,7 @@
             @endif
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Update Driver Type</h3>
+                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Update Posts</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">

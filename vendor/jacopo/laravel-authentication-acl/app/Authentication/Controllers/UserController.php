@@ -67,7 +67,6 @@ class UserController extends Controller {
 
     public function getList(Request $request) {
         $users = $this->user_repository->all($request->except(['page']));
-
         return View::make('laravel-authentication-acl::admin.user.list')->with(["users" => $users, "request" => $request]);
     }
 

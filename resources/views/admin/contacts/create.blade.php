@@ -1,20 +1,44 @@
 @extends('admin.layouts.base-1cols')
 
 @section('title')
-Admin area: Contact us
+    Admin area: Contact us
 @stop
 
 @section('content')
-<div class="container">
-    <div class="admin-area">
+    <?php
+    function setVar($var, $dynamic_var)
+    {
+        $search = array('[mobile1]', '[mobile2]', '[email1]', '[email2]');
+        $replace = array($dynamic_var['mobile1'], $dynamic_var['mobile2'], $dynamic_var['email1'], $dynamic_var['email2']);
+        $var = str_replace($search, $replace, $var);
+        return $var;
+    }
+    ?>
+    <div class="container">
+        <div class="admin-area">
+            @foreach( $contact_rows as $key => $home )
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <h3 id="pageTitle">{!! setVar($home->title, $dynamic_var) !!}</h3>
+                        <?php $content = setVar($home->content, $dynamic_var);
+                        $content = explode('[more]', $content);
+                        $content = $content[0];
+                        echo $content;
+                        ?>
+
+                    </div>
+
+                </div>
+        </div>
+
+        @endforeach
         <div class="row">
             <div class="col-sm-12">
-                <h2 id="pageTitle">Contact us</h2>
-
                 <?php $message = Session::get('message'); ?>
                 @if( isset($message) )
-                <div class="alert alert-success">{!! $message !!}</div>
-                @endif                
+                    <div class="alert alert-success">{!! $message !!}</div>
+                @endif
 
                 {!! Form::open(array('route' => 'contact.store', 'class' => 'form')) !!}
 
@@ -48,9 +72,10 @@ Admin area: Contact us
                     array('class'=>'btn btn-info')) !!}
                 </div>
                 {!! Form::close() !!}
+
             </div>
         </div>
     </div>
     <div class="clearfix"></div>
-</div>
+    </div>
 @stop

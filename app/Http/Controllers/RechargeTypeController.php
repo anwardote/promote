@@ -29,7 +29,6 @@ use LaravelAcl\Authentication\Validators\UserValidator;
 use LaravelAcl\Library\Exceptions\JacopoExceptionsInterface;
 use LaravelAcl\Authentication\Validators\UserProfileValidator;
 use LaravelAcl\Authentication\Interfaces\AuthenticateInterface;
-use App\Http\Models\RechargeType;
 use App\Repositories\RechargeTypeRepository;
 
 class RechargeTypeController extends Controller {
@@ -74,9 +73,7 @@ class RechargeTypeController extends Controller {
 
     public function postUpdate(Request $request) {
 
-       $this->validate($request, ['type_name' => 'required', 'ac_no'=>'required', 'image' => 'required']);
-
-
+     $this->validate($request, ['type_name' => 'required', 'ac_no'=>'required', 'image' => 'required']);
         try {
             $input = $request->except(['_token']);
             $this->RechargeType->update($input['id'], $input);

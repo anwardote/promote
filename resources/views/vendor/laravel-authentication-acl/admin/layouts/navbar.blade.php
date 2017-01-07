@@ -5,9 +5,6 @@ $user = $authentication->getLoggedUser();
 if ($user) {
     $user_group = strtolower($user->groups()->first()->name);
     if ($user_group !== "superadmin") {
-        ?>
-
-        <?php
     }
 } else {
     ?>
@@ -62,15 +59,8 @@ if ($user) {
                     <div id="navMiniMobile"> <a href="{!! URL::route('users.selfprofile.edit') !!}">My Account</a><span> | </span><a href="{!! URL::route('user.logout') !!}">Sign Out</a></div>
                     <ul class="menu">
                         <li <?php if (isset($current_route) && $current_route == "home"): ?>class="active"<?php endif; ?>><a href="/">Home</a><li>
-
                         <li <?php if (isset($current_route) && $current_route == "howtouse"): ?>class="active" <?php endif; ?>><a href="{{ route('howtouse') }}">How to Use</a><li>
-
                         <li <?php if (isset($current_route) && $current_route == "howtorecharge"): ?>class="active" <?php endif; ?>><a href="{{ route('howtorecharge') }}">How to Recharge</a><li>
-
-                        <li <?php if (isset($current_route) && $current_route == "tutorial"): ?>class="active" <?php endif; ?>><a href="{{ route('tutorial') }}">Tutorials</a><li>
-                        <li <?php if (isset($current_route) && $current_route == "firmware"): ?>class="active" <?php endif; ?>><a href="{{ route('firmware') }}">Firmware</a><li>
-                        <li <?php if (isset($current_route) && $current_route == "driver"): ?>class="active" <?php endif; ?>><a href="{{ route('driver') }}">Driver</a><li>
-                        <li <?php if (isset($current_route) && $current_route == "tool"): ?>class="active" <?php endif; ?>><a href="{{ route('tool') }}">Tools</a><li>
                         <li <?php if (isset($current_route) && $current_route == "contact.form"): ?>class="active" <?php endif; ?>><a href="{!! URL::route('contact.form') !!}">Contact Us</a><li>
                     </ul>
                 </div>

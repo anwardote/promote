@@ -54,24 +54,9 @@ class PageTemplates
 
     }
 
-
-    public function tutorial()
+    public function contact_us()
     {
 
     }
-
-    public function firmware()
-    {
-
-    }
-
-    public function driver()
-    {
-    }
-
-    public function tool()
-    {
-    }
-
 
 }

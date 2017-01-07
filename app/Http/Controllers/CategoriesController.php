@@ -73,7 +73,9 @@ class CategoriesController extends Controller {
     public function postUpdate(Request $request) {
 
        $this->validate($request, ['name' => 'required']);
-
+       if($request->parent_id == 'NA'){
+           $request->merge(array('parent_id' => 0));
+       }
         try {
             $request->merge(array('name' => strtolower($request->name)));
             $input = $request->except(['_token']);

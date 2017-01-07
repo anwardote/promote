@@ -1,7 +1,7 @@
 @extends('admin.layouts.base-1cols')
 
 @section('title')
-    Welcome | Home Page
+    How to use | Home Page
 @stop
 @section('head_css')
     <style>
@@ -79,13 +79,19 @@
     <section id="essentials">
         @foreach( $home_rows as $key => $home )
             <div class="row">
+
                 <a class="paddedTopBottom" href="{!! route('home.business').'/'.$home->slug !!}">
                     <div class="col-sm-3" style="text-align: center">
-                        <img style="width: 270px; vertical-align: text-bottom" alt="thumb-checklist" src="/{!! $home->image !!}"></div>
+                        <img style="width: 270px; vertical-align: text-bottom" alt="thumb-checklist" src="/{!! $home->image !!}">
+                    </div>
                     <div class="col-sm-9">
                         <h2>{!! setVar($home->title, $dynamic_var) !!}</h2>
                         {{--{!! setVar($home->content, $dynamic_var) !!}--}}
-                        <?php $content= setVar($home->content, $dynamic_var) ?>
+                        <?php $content= setVar($home->content, $dynamic_var);
+                        $content=explode('[stop]', $content);
+                        $content=$content[0];
+                        ?>
+                        {{--{!! $content !!}--}}
                         {!!  substr($content, 0, strrpos(substr($content, 0, 850), " ")).' ...' !!} <span style="color:red">Learn more</span>
                     </div>
                 </a>

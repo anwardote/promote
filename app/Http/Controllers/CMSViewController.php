@@ -7,7 +7,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use phpDocumentor\Reflection\Types\Array_;
 use view,
-    App;
+    App,
+    Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -30,11 +31,11 @@ use App\Http\Models\CmsPage;
 use App\Http\Models\CmsPost;
 use App\Http\Models\CmsCategory;
 use App\Repositories\CmsPageRepository;
+use App\Repositories\CmsPostRepository;
 use App\Http\Models\RechargeType;
 use App\Repositories\TutorialRepository;
 use App\Repositories\DriverNameRepository;
 use App\Repositories\ToolRepository;
-
 use App\Http\Models\Firmware;
 use App\Http\Models\Driver;
 use App\Http\Models\Tool;
@@ -55,7 +56,7 @@ class CMSViewController extends Controller
     {
         $this->cmsPageRepository = $CmsPageRepo;
         $this->tutorialRespository = $tutorialRepo;
-        $this->toolRepository =$toolRepo;
+        $this->toolRepository = $toolRepo;
     }
 
     public function getHomePage()
@@ -66,9 +67,20 @@ class CMSViewController extends Controller
             $sliders = CmsPost::where([['cms_category_id', 6], ['status', 'PUBLISHED']])->get();
         }
         $home = CmsPost::where([['cms_category_id', 1], ['status', 'PUBLISHED']])->get();
-        return View::make('admin.pages.page')->with(['sliders' => $sliders, 'page' => $page, 'home_rows' => $home]);
+        return View::make('admin.pages.page')->with(['sliders' => $sliders, 'page' => $page, 'home_rows' => $home, 'dynamic_var' => $this->set_variable()]);
     }
 
+    public function getHowtousePage()
+    {
+        $page = $this->cmsPageRepository->findBySlugOrId('how_to_use');
+        $sliders = '';
+        if ($page->banner_type == 'slider') {
+            $sliders = CmsPost::where([['cms_category_id', 12], ['status', 'PUBLISHED']])->get();
+        }
+
+        $home = CmsPost::where([['cms_category_id', 11], ['status', 'PUBLISHED']])->get();
+        return View::make('admin.pages.howtouse')->with(['sliders' => $sliders, 'page' => $page, 'home_rows' => $home, 'dynamic_var' => $this->set_variable()]);
+    }
 
 
     public function getHowtorechargePage()
@@ -135,7 +147,6 @@ class CMSViewController extends Controller
     }
 
 
-
     public function getDriverPage()
     {
         $page = $this->cmsPageRepository->findBySlugOrId('driver');
@@ -170,14 +181,26 @@ class CMSViewController extends Controller
         }
         return View::make('admin.pages.tool')->with(['sliders' => $sliders, 'page' => $page, 'cms_post' => $cms_Post, 'viwCategory' => $toolCategory, 'showall' => $ShowAll]);
     }
+
     public function getToolCategoryView(Request $request)
     {
         $results = $this->toolRepository->all($request->except(['page']), $request);
         return View::make('admin.pages.tool-categoryview')->with(['results' => $results, 'request' => $request]);
     }
 
+    public function set_variable()
+    {
+        $DynamicVar = [];
+        $mobileNo = Config::get('mail.contact_no');
+        $emailAddress = Config::get('mail.contact_email');
+        $DynamicVar = $mobileNo + $emailAddress;
+        return $DynamicVar;
+    }
 
-
-
-
+    public function getDetail(Request $request)
+    {
+        $postRepo = new CmsPostRepository();
+        $result =(object) $postRepo->getDetailbyslug($request->slug);
+        return View::make('admin.pages.detailByslug')->with(['result' => $result, 'request' => $request]);
+    }
 }

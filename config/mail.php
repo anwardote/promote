@@ -60,6 +60,16 @@ return [
         'name' => 'Admin',
     ],
 
+    'contact_no' => [
+        'mobile1' =>'+8801923020000',
+        'mobile2' =>'+8801687912712',
+    ],
+
+    'contact_email' => [
+        'email1' => 'nazrulislam@gmail.com',
+        'email2' => 'nazrulislam2@gmail.com',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

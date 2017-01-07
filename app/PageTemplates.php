@@ -44,6 +44,17 @@ class PageTemplates
 
     /*Home Page End*/
 
+    public function how_to_use()
+    {
+
+    }
+
+    public function how_to_recharge()
+    {
+
+    }
+
+
     public function tutorial()
     {
 

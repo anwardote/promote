@@ -16,11 +16,14 @@ Route::group(['prefix' => ''], function () {
         'middleware' => array('can_see'),
         'as' => 'home',
         'uses' => 'CMSViewController@getHomePage']);
-
+    Route::get('/business/{slug?}', [
+        'middleware' => array('can_see'),
+        'as' => 'home.business',
+        'uses' => 'CMSViewController@getDetail']);
     Route::get('/howtouse', [
         'middleware' => array('can_see'),
         'as' => 'howtouse',
-        'uses' => 'CMSViewController@getFirmwarePage']);
+        'uses' => 'CMSViewController@getHowtousePage']);
 
     Route::get('/howtorecharge', [
         'middleware' => array('can_see'),

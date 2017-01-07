@@ -78,6 +78,13 @@ class CmsPostRepository {
         return $q;
     }
 
+    public function getDetailbyslug($slug){
+        $q = new CmsPost();
+        $q= $q->where([['slug', $slug], ['status', 'PUBLISHED']])->get()->toArray();
+        return $q[0];
+
+    }
+
     /**
      * Deletes a new object
      *

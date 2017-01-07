@@ -1,7 +1,7 @@
 @extends('admin.layouts.base-1cols')
 
 @section('title')
-    Tool | Free Firmware
+    How to Recharge | Free Firmware
 @stop
 
 @section('head_css')

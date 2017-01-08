@@ -30,7 +30,7 @@ View::composer([
     'laravel-authentication-acl::admin.user.groups',
     'laravel-authentication-acl::admin.user.list',
     'laravel-authentication-acl::admin.user.profile',
-        ], function ($view) {
+], function ($view) {
     $view->with('sidebar_items', [
         "Users list" => [
             "url" => URL::route('users.list'),
@@ -93,7 +93,8 @@ View::composer(['laravel-authentication-acl::admin.permission.*'], function ($vi
 /**
  *  Recharge sidebar
  */
-View::composer(['laravel-authentication-acl::admin.recharge-info.*'], function ($view) {
+View::composer(['laravel-authentication-acl::admin.recharge-info.*',
+    'laravel-authentication-acl::admin.bill-info.list'], function ($view) {
     $view->with('sidebar_items', [
         " Recharge Histories" => [
             'url' => URL::route('recharge.list'),
@@ -102,28 +103,31 @@ View::composer(['laravel-authentication-acl::admin.recharge-info.*'], function (
         " New Recharge" => [
             'url' => URL::route('recharge.new'),
             "icon" => '<i class="fa fa-plus-circle"></i>'
-        ]
-    ]);
-});
-
-
-/**
- *  View Category sidebar
- */
-View::composer(['laravel-authentication-acl::admin.view-category.*'], function ($view) {
-    $view->with('sidebar_items', [
-        " Category list" => [
-            'url' => URL::route('viewcategory.list'),
-            "icon" => '<i class="fa fa-th-list"></i>'
         ],
-        " Category Add" => [
-            'url' => URL::route('viewcategory.new'),
+
+        " Bill Histories" => [
+            'url' => URL::route('userbill.list'),
             "icon" => '<i class="fa fa-plus-circle"></i>'
         ]
     ]);
 });
 
 
+/**
+ *  Bill sidebar
+ */
+View::composer(['laravel-authentication-acl::admin.bill-info.*'], function ($view) {
+    $view->with('sidebar_items', [
+        " Bill Histories" => [
+            'url' => URL::route('bill.list'),
+            "icon" => '<i class="fa fa-th-list"></i>'
+        ],
+        " New Bill" => [
+            'url' => URL::route('bill.new'),
+            "icon" => '<i class="fa fa-plus-circle"></i>'
+        ]
+    ]);
+});
 
 /**
  *  Setup sidebar
@@ -154,7 +158,7 @@ View::composer([
  *  CMS sidebar
  */
 View::composer([
-    'laravel-authentication-acl::admin.cms.category.*', 
+    'laravel-authentication-acl::admin.cms.category.*',
     'laravel-authentication-acl::admin.cms.page.*',
     'laravel-authentication-acl::admin.cms.post.*'], function ($view) {
     $view->with('sidebar_items', [

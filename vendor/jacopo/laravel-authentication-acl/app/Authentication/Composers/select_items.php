@@ -43,7 +43,9 @@ View::composer([
     'laravel-authentication-acl::admin.recharge-info.new-admin',
     'laravel-authentication-acl::admin.recharge-info.edit-admin',
     'laravel-authentication-acl::admin.recharge-info.new',
-    'laravel-authentication-acl::admin.recharge-info.edit'
+    'laravel-authentication-acl::admin.recharge-info.edit',
+        'laravel-authentication-acl::admin.bill-info.new-admin',
+    'laravel-authentication-acl::admin.bill-info.edit-admin',
 ], function ($view) {
     $fh = new FormHelper();
     $values_user_info_output = $fh->getSelectUserInfoOutputValues();

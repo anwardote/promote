@@ -36,12 +36,12 @@
             @endif
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Modify Information</h3>
+                    <h3 class="panel-title bariol-bold"><i class="fa fa-users"></i> Details Information</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-                            <h3 style="padding: 10px; text-align: center">Recharge Details Information </h3>
+                            <h3 style="padding: 10px; text-align: center">Bill Details Information </h3>
                             <table class="table table-hover">
 
                                 <tr>
@@ -50,53 +50,38 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="lefttd">Banking Name</td>
-                                    <td>{{ $data->rechargeType->type_name }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Date</td>
+                                    <td class="lefttd">Billing Date</td>
                                     <td>{{ $data->date}} - (YY-MM-DD)</td>
                                 </tr>
 
                                 <tr>
-                                    <td class="lefttd">Rechare From (Account Number)</td>
-                                    <td>{{ $data->ac_from }}</td>
+                                    <td class="lefttd">Billing Subject</td>
+                                    <td>{{ $data->subject }}</td>
                                 </tr>
 
                                 <tr>
-                                    <td class="lefttd">Rechare To (Account Number)</td>
-                                    <td>{{ $data->ac_to }}</td>
+                                    <td class="lefttd">Billing Subject</td>
+                                    <td><?php echo $data->description; ?></td>
                                 </tr>
 
                                 <tr>
-                                    <td class="lefttd">Rechare Amount</td>
+                                    <td class="lefttd">Billing Amount (Tk.)</td>
                                     <td>{{ number_format($data->amount, 2, '.', ',') }} Tk.</td>
                                 </tr>
-                                <tr>
-                                    <td class="lefttd">Transaction Number</td>
-                                    <td>{{ $data->trans_no }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Extra Information</td>
-                                    <td>{{ $data->remark }}</td>
-                                </tr>
-
                                 <tr>
                                     <td class="lefttd">Status</td>
                                     <td>{{ $data->status }}</td>
                                 </tr>
 
                                 <tr>
+                                    <td class="lefttd">Bill For</td>
+                                    <td>{{ $data->user_created_for()->first()->email }}</td>
+                                </tr>
+                                <tr>
                                     <td class="lefttd">Created By</td>
-                                    <td>{{ $data->user()->first()->email }}</td>
+                                    <td>{{ $data->user_created_by()->first()->email }}</td>
                                 </tr>
 
-                                <tr>
-                                    <td class="lefttd">Rechared by</td>
-                                    <td>{{ $data->user_requested_for()->first()->email }}</td>
-                                </tr>
 
                                 <tr>
                                     <td class="lefttd">Created Time</td>

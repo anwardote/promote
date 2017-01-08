@@ -77,6 +77,64 @@ Route::group(['prefix' => 'admin'], function () {
         'middleware' => array('can_see', 'admin_logged', 'has_perm:_delete'),
         'as' => 'recharge.delete',
         'uses' => 'RechargesController@delete']);
+
+    /*For user*/
+    Route::get('/user-bill/list', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'userbill.list',
+        'uses' => 'BillInfosController@getList']);
+
+    Route::get('/user-bill/detail', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_recharge-editor'),
+        'as' => 'userbill.detail',
+        'uses' => 'BillInfosController@getBilldetail']);
+
+
+    /* START Bill */
+    Route::get('/bill/list', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_bill-editor'),
+        'as' => 'bill.list',
+        'uses' => 'BillInfosController@getAdminList']);
+
+    Route::get('/bill/new', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_bill-editor'),
+        'as' => 'bill.new',
+        'uses' => 'BillInfosController@getNew']);
+
+    Route::post('/bill/new', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_bill-editor'),
+        'as' => 'bill.new',
+        'uses' => 'BillInfosController@postNew']);
+
+    Route::get('/bill/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_bill-editor'),
+        'as' => 'bill.edit',
+        'uses' => 'BillInfosController@getUpdate']);
+
+    Route::post('/bill/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_bill-editor'),
+        'as' => 'bill.edit',
+        'uses' => 'BillInfosController@postUpdate']);
+
+    Route::get('/bill/detail', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_bill-editor'),
+        'as' => 'bill.detail',
+        'uses' => 'BillInfosController@getDetail']);
+
+    Route::get('/bill/delete', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_delete'),
+        'as' => 'bill.delete',
+        'uses' => 'BillInfosController@delete']);
+
+    Route::get('/summary', [
+        'middleware' => array('can_see'),
+        'as' => 'summary',
+        'uses' => 'GlobalController@getSummary']);
+
+    Route::get('/summarybalance', [
+        'middleware' => array('can_see'),
+        'as' => 'summarybalance',
+        'uses' => 'GlobalController@getBalance']);
 });
 
 

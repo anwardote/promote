@@ -14,9 +14,6 @@
             top: -25px;
             right: 10px;
         }
-        table .lefttd{
-            width: 40%;
-        }
     </style>
 @stop
 
@@ -40,71 +37,55 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
+                        <div class="summary-table" style="display: none">
+                            @include('laravel-authentication-acl::admin.recharge-info.summary')
+                        </div>
                         <div class="col-md-12 col-xs-12">
-                            <h3 style="padding: 10px; text-align: center">Recharge Details Information </h3>
-                            <table class="table table-hover">
 
-                                <tr>
-                                    <td class="lefttd">ID</td>
-                                    <td>{{ $data->id }}</td>
-                                </tr>
+                            {{-- group base form --}}
+                            {!! Form::model($data, [ 'url' => [URL::route('bill.edit'), $data->id], 'method' => 'post', 'files' => true] ) !!}
 
-                                <tr>
-                                    <td class="lefttd">Banking Name</td>
-                                    <td>{{ $data->rechargeType->type_name }}</td>
-                                </tr>
+                            <div class="form-group">
+                                {!! Form::label('created_for','Bill For: *') !!}
+                                {!! Form::select('created_for', $user_info_output_values, $data->created_for, ["class"=>"form-control permission-select chosen-select"]) !!}
+                                <span class="text-danger">{!! $errors->first('created_for') !!}</span>
+                            </div>
 
-                                <tr>
-                                    <td class="lefttd">Date</td>
-                                    <td>{{ $data->date}} - (YY-MM-DD)</td>
-                                </tr>
+                            <div class="form-group">
+                                {!! Form::label('date','Billing Date: *') !!}
+                                {!! Form::date('date', \Carbon\Carbon::now(), [ 'class' => 'form-control', 'placeholder' => 'Billing Date here.']) !!}
+                                <span class="text-danger">{!! $errors->first('date') !!}</span>
+                            </div>
 
-                                <tr>
-                                    <td class="lefttd">Rechare From (Account Number)</td>
-                                    <td>{{ $data->ac_from }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Rechare To (Account Number)</td>
-                                    <td>{{ $data->ac_to }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Rechare Amount</td>
-                                    <td>{{ number_format($data->amount, 2, '.', ',') }} Tk.</td>
-                                </tr>
-                                <tr>
-                                    <td class="lefttd">Transaction Number</td>
-                                    <td>{{ $data->trans_no }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Extra Information</td>
-                                    <td>{{ $data->remark }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Status</td>
-                                    <td>{{ $data->status }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Created By</td>
-                                    <td>{{ $data->user()->first()->email }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Rechared by</td>
-                                    <td>{{ $data->user_requested_for()->first()->email }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="lefttd">Created Time</td>
-                                    <td>{{ $data->created_at }}</td>
-                                </tr>
+                            <div class="form-group">
+                                {!! Form::label('subject','Subject: *') !!}
+                                {!! Form::text('subject', null, [ 'class' => 'form-control', 'placeholder' => 'Billing Subject here.']) !!}
+                                <span class="text-danger">{!! $errors->first('subject') !!}</span>
+                            </div>
 
 
-                            </table>
+                            <div class="form-group">
+                                {!! Form::label('description','Description: *') !!}
+                                {!! Form::textarea('description', null, [ 'class' => 'form-control tinymce', 'placeholder' => 'Billing description here.']) !!}
+                                <span class="text-danger">{!! $errors->first('description') !!}</span>
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('amount','Bill Amount: *') !!}
+                                {!! Form::text('amount', null, [ 'class' => 'form-control', 'placeholder' => 'Bill Amount here.']) !!}
+                                <span class="text-danger">{!! $errors->first('amount') !!}</span>
+                            </div>
+
+                            <div class="form-group">
+                                {!! Form::label('status','Select status: *') !!}
+                                {!! Form::select('status', ['PUBLISHED'=>'Published', 'DRAFT' => 'Draft'], $data->status, ["class"=>"form-control "]) !!}
+                                <span class="text-danger">{!! $errors->first('status') !!}</span>
+                            </div>
+
+                            {!! Form::hidden('id') !!}
+
+                            {!! Form::submit('Save', array("class"=>"btn btn-info pull-right ")) !!}
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
@@ -183,6 +164,29 @@
             return false;
         }
 
+        $("#recharge_type_id").change(function () {
+            var recharge_type = $(this).val();
+            var url = '<?php route("recharge.new");?>?id={{$data->id}}&&recharge_type=' + recharge_type
+            window.location = url;
+        })
+
+        $(document).ready(function (e) {
+            $('#created_for').change(function (e) {
+                var user_id=$(this).val();
+                var url = '{{route('summarybalance')}}?user_id='+ user_id;
+                $.ajax(url, {
+                    success: function (data) {
+                        $(".summary-table .recharge_amount").html(data.recharge_amount);
+                        $(".summary-table .bill_amount").html(data.bill_amount);
+                        $(".summary-table .balance_amount").html(data.balance_amount);
+                        $('.summary-table').show(200)
+                    },
+                    error: function () {
+                        alert('Someting wrong.');
+                    }
+                });
+            })
+        })
     </script>
 
 @stop

@@ -34,7 +34,7 @@
                 array_unshift($status_values, 'Status');
                 ?>
                 {!! Form::select('status', $status_values, '', ["class"=>"form-control"]) !!}
-            </div>            
+            </div>
         </div>
     </div>
 

@@ -31,6 +31,8 @@ use LaravelAcl\Authentication\Validators\UserProfileValidator;
 use LaravelAcl\Authentication\Interfaces\AuthenticateInterface;
 use App\Repositories\RechargeRepository;
 use App\Repositories\RechargeTypeRepository;
+use App\Repositories\GlobalRepository;
+
 
 class RechargesController extends Controller
 {
@@ -39,33 +41,36 @@ class RechargesController extends Controller
     protected $logged_user;
     protected $rechargeRepository;
     protected $rechargeTypeRepository;
+    protected $globalRepository;
 
 
-    public function __construct(AuthenticateInterface $auth, RechargeRepository $rechargeRepo, RechargeTypeRepository $rechargeTypeRepo)
+    public function __construct(AuthenticateInterface $auth, RechargeRepository $rechargeRepo, RechargeTypeRepository $rechargeTypeRepo, GlobalRepository $globalRepo)
     {
         $this->auth = $auth;
         $this->logged_user = $this->auth->getLoggedUser();
         $this->rechargeRepository = $rechargeRepo;
         $this->rechargeTypeRepository = $rechargeTypeRepo;
+        $this->globalRepository = $globalRepo;
 
-    }
-
-    public function getIndex()
-    {
-        $info = "welcome to web page";
-        return View::make('admin.home.index')->with(['user_data' => $this->logged_user, 'info' => $info]);
     }
 
     public function getAdminList(Request $request)
     {
+
         $logged_user = $this->auth->getLoggedUser();
         $user_group = $logged_user->groups()->first()->name;
+
         if ($user_group === 'superadmin' || $user_group === 'admin') {
             $results = $this->rechargeRepository->all($request->except(['page']));
             return View::make('laravel-authentication-acl::admin.recharge-info.list')->with(['user_data' => $this->auth->getLoggedUser(), 'results' => $results, 'request' => $request]);
         }
-
         $results = $this->rechargeRepository->whereall($request->except(['page']), $logged_user->id);
+
+//        if (isset($request->summary) && $request->summary == 'on') {
+//            $summary = $this->globalRepository->getUserSummary($logged_user->id);
+//            return View::make('laravel-authentication-acl::admin.recharge-info.list')->with(['user_data' => $this->auth->getLoggedUser(), 'results' => $results, 'request' => $request, 'summary' => $summary]);
+//        }
+
         return View::make('laravel-authentication-acl::admin.recharge-info.list')->with(['user_data' => $this->auth->getLoggedUser(), 'results' => $results, 'request' => $request]);
     }
 

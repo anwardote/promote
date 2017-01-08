@@ -24,6 +24,13 @@ return [
         ],
 
         [
+            "name" => "Bill",
+            "route" => "bill.list",
+            "link" => '/admin/bill/list',
+            "permissions" => ["_bill-editor", "_superadmin"]
+        ],
+
+        [
             "name" => "Setup",
             "route" => "recharge-type.list",
             "link" => '/admin/setup/recharge-type/list',

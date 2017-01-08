@@ -112,6 +112,17 @@ Route::group(['prefix' => 'admin/setup'], function () {
         'middleware' => array('can_see', 'admin_logged', 'has_perm:_delete'),
         'as' => 'recharge-type.delete',
         'uses' => 'RechargeTypeController@delete']);
+
+    /* Setup Variables */
+     Route::get('/variable/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_setup'),
+        'as' => 'variable.edit',
+        'uses' => 'VariablesController@getUpdate']);
+
+    Route::post('/variable/edit', [
+        'middleware' => array('can_see', 'admin_logged', 'has_perm:_setup'),
+        'as' => 'variable.edit',
+        'uses' => 'VariablesController@postUpdate']);
 });
 
 

@@ -129,7 +129,8 @@ View::composer(['laravel-authentication-acl::admin.view-category.*'], function (
  *  Setup sidebar
  */
 View::composer([
-    'laravel-authentication-acl::admin.recharge-type.*'], function ($view) {
+    'laravel-authentication-acl::admin.recharge-type.*',
+    'laravel-authentication-acl::admin.variable.*'], function ($view) {
     $view->with('sidebar_items', [
         " Bank List" => [
             'url' => URL::route('recharge-type.list'),
@@ -139,6 +140,12 @@ View::composer([
             'url' => URL::route('recharge-type.new'),
             "icon" => '<i class="fa fa-plus-circle"></i>'
         ],
+
+        " Global Variables" => [
+            'url' => URL::route('variable.edit'),
+            "icon" => '<i class="fa fa-edit"></i>'
+        ],
+
     ]);
 });
 

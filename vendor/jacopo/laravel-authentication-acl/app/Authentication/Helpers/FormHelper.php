@@ -12,7 +12,9 @@ use LaravelAcl\Authentication\Repository\SentryGroupRepository;
 use App\Repositories\RechargeTypeRepository;
 use LaravelAcl\Authentication\Repository\SentryUserRepository;
 use App\Repositories\CountryRepository;
+use App\Repositories\VariableRepository;
 use App\Repositories\CmsCategoryRepository;
+
 
 class FormHelper {
 
@@ -30,12 +32,13 @@ class FormHelper {
     protected $repository_countries;
     protected $repository_cmsCategory;
 
-    public function __construct(PermissionRepository $rp = null, SentryGroupRepository $rg = null, RechargeTypeRepository $rt = null, SentryUserRepository $ui = null, CountryRepository $cr = null,  CmsCategoryRepository $cmsCategory = null) {
+    public function __construct(PermissionRepository $rp = null, SentryGroupRepository $rg = null, RechargeTypeRepository $rt = null, SentryUserRepository $ui = null, VariableRepository $vr = null, CountryRepository $cr = null,  CmsCategoryRepository $cmsCategory = null) {
         $this->repository_permission = $rp ? $rp : new PermissionRepository();
         $this->repository_groups = $rg ? $rg : new SentryGroupRepository();
         $this->repository_rechargetype = $rt ? $rt : new RechargeTypeRepository();
         $this->repository_userinfo = $ui ? $ui : new SentryUserRepository();
         $this->repository_countries = $cr ? $cr : new CountryRepository();
+        $this->repository_variable = $vr ? $vr : new VariableRepository();
         $this->repository_cmsCategory = $cmsCategory ? $cmsCategory : new CmsCategoryRepository();
     }
 
@@ -100,6 +103,10 @@ class FormHelper {
 
     public function getSelectCmsCategoryOutputValues() {
         return $this->getSelectValues("repository_cmsCategory", 'id', 'name');
+    }
+
+    public function getVariablesOutputValues() {
+        return $this->getSelectValues("repository_variable", 'id', 'variables');
     }
 
 }

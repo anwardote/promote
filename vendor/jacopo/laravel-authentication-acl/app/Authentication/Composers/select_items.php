@@ -66,6 +66,18 @@ View::composer([
     $view->with('status_values', $values_status_output);
 });
 
+
+/**
+ * Variables info
+ */
+View::composer([
+    'laravel-authentication-acl::admin.layouts.footer',
+], function ($view) {
+    $fh = new FormHelper();
+    $values_var_output = $fh->getVariablesOutputValues();
+    $view->with('variables_values', $values_var_output);
+});
+
 /**
  * CMS
  * Category Select Value
